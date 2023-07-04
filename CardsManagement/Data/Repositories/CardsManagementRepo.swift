@@ -6,3 +6,48 @@
 //
 
 import Foundation
+
+class CardsManagementRepo: DefaultCardsManagementRepository {
+    
+    let localDataSrc: DefaultCardsManagementDataSrc
+    
+    init(localDataSrc: DefaultCardsManagementDataSrc) {
+        self.localDataSrc = localDataSrc
+    }
+    
+    func getAllCards() throws -> [Card]? {
+        var cardList : [Card] = []
+        let cards = try localDataSrc.getAllCards()
+        guard let items = cards else{
+                return []
+            }
+            let list = items
+            for card in list{
+                cardList.append(card.toDomain())
+            }
+            return cardList
+    }
+    
+    func saveCard(card: Card) throws {
+        try localDataSrc.saveCard(card: toDTO(card: card))
+    }
+    
+    func deleteCard(id: String) throws {
+        try localDataSrc.deleteCard(id: id)
+    }
+    
+    func deleteAllCards() throws {
+        try localDataSrc.deleteAllCards()
+    }
+    
+   private func toDTO(card: Card) -> CardDTO {
+        let cardDTO = CardDTO()
+        cardDTO.id = card.id
+        cardDTO.cardHolder = card.cardHolder
+        cardDTO.cardNumber = card.cardNumber
+        cardDTO.cvv = card.cvv
+        cardDTO.expiryDate = card.expiryDate
+           return cardDTO
+       }
+    
+}
