@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		042FD3002A54D0F100D4AFF1 /* DefaultCardsManagementRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042FD2FF2A54D0F100D4AFF1 /* DefaultCardsManagementRepository.swift */; };
+		042FD3022A54E20900D4AFF1 /* DefaultCardsManagmentUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042FD3012A54E20900D4AFF1 /* DefaultCardsManagmentUseCase.swift */; };
+		042FD3042A54E25800D4AFF1 /* CardsManagmentUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042FD3032A54E25800D4AFF1 /* CardsManagmentUseCase.swift */; };
 		049B61B52A50863C00056D60 /* CardsManagementApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049B61B42A50863C00056D60 /* CardsManagementApp.swift */; };
 		049B61B72A50863C00056D60 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049B61B62A50863C00056D60 /* ContentView.swift */; };
 		049B61B92A50863D00056D60 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 049B61B82A50863D00056D60 /* Assets.xcassets */; };
@@ -44,6 +46,8 @@
 
 /* Begin PBXFileReference section */
 		042FD2FF2A54D0F100D4AFF1 /* DefaultCardsManagementRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultCardsManagementRepository.swift; sourceTree = "<group>"; };
+		042FD3012A54E20900D4AFF1 /* DefaultCardsManagmentUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultCardsManagmentUseCase.swift; sourceTree = "<group>"; };
+		042FD3032A54E25800D4AFF1 /* CardsManagmentUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsManagmentUseCase.swift; sourceTree = "<group>"; };
 		049B61B12A50863C00056D60 /* CardsManagement.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CardsManagement.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		049B61B42A50863C00056D60 /* CardsManagementApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsManagementApp.swift; sourceTree = "<group>"; };
 		049B61B62A50863C00056D60 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -216,6 +220,7 @@
 		049B61E72A51EDF100056D60 /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
+				042FD3032A54E25800D4AFF1 /* CardsManagmentUseCase.swift */,
 				049B61E82A51EE0300056D60 /* Protocol */,
 			);
 			path = UseCases;
@@ -224,6 +229,7 @@
 		049B61E82A51EE0300056D60 /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
+				042FD3012A54E20900D4AFF1 /* DefaultCardsManagmentUseCase.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -445,6 +451,8 @@
 				049B61F62A51F84100056D60 /* CardsManagementRepo.swift in Sources */,
 				049B62022A5306B900056D60 /* Card+Mapping.swift in Sources */,
 				049B61E62A51EAEE00056D60 /* CardsManagementViewModel.swift in Sources */,
+				042FD3042A54E25800D4AFF1 /* CardsManagmentUseCase.swift in Sources */,
+				042FD3022A54E20900D4AFF1 /* DefaultCardsManagmentUseCase.swift in Sources */,
 				049B61B52A50863C00056D60 /* CardsManagementApp.swift in Sources */,
 				049B61F42A51F83400056D60 /* CardsManagementDataSrc.swift in Sources */,
 				042FD3002A54D0F100D4AFF1 /* DefaultCardsManagementRepository.swift in Sources */,
