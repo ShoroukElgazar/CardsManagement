@@ -22,7 +22,7 @@ class CardsManagementLocalDataSrc: DefaultCardsManagementDataSrc{
     
     func getAllCards() throws -> [CardDTO]? {
         try storage.getAllCards()
-    }jbcjksahiufegiuefsd
+    }
     
     func saveCard(card: CardDTO) throws {
         try storage.save(card: card)
