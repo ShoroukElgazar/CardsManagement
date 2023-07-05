@@ -93,6 +93,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		042FD3052A55AE0700D4AFF1 /* CardsScreen */ = {
+			isa = PBXGroup;
+			children = (
+				049B61E32A51EAAC00056D60 /* View */,
+				049B61E42A51EAB800056D60 /* ViewModel */,
+			);
+			path = CardsScreen;
+			sourceTree = "<group>";
+		};
 		049B61A82A50863C00056D60 = {
 			isa = PBXGroup;
 			children = (
@@ -179,8 +188,7 @@
 		049B61E02A51DCCB00056D60 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				049B61E42A51EAB800056D60 /* ViewModel */,
-				049B61E32A51EAAC00056D60 /* View */,
+				042FD3052A55AE0700D4AFF1 /* CardsScreen */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
