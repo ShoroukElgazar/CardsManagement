@@ -6,10 +6,11 @@
 //
 
 import Combine
+import Foundation
 
 class AddCardViewModel: ObservableObject {
     var addCardUseCase : DefaultAddCardUseCase
-    @Published var error : String? = nil
+    @Published var error : String = ""
     
     init(addCardUseCase: DefaultAddCardUseCase) {
         self.addCardUseCase = addCardUseCase
@@ -19,8 +20,12 @@ class AddCardViewModel: ObservableObject {
         do{
             try addCardUseCase.saveCard(card: card)
         } catch {
-        print(error)
+           
+            self.error = error.localizedDescription
         }
     }
     
+}
+extension String: LocalizedError {
+    public var errorDescription: String? { return self }
 }

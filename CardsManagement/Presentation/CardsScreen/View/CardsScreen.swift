@@ -14,6 +14,13 @@ struct CardsScreen: View {
             {
                 CardsView()
                 
+            }.onAppear{
+                do{
+                   print(try Storage.sharedInstance().getAllCards() ) 
+                }catch{
+                    print(error)
+
+                }
             }
         }
     }

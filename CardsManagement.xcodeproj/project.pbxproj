@@ -16,6 +16,8 @@
 		042FD3122A55C5B200D4AFF1 /* DeleteCardUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042FD3112A55C5B200D4AFF1 /* DeleteCardUseCase.swift */; };
 		042FD3142A55C62A00D4AFF1 /* DefaultAddCardUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042FD3132A55C62A00D4AFF1 /* DefaultAddCardUseCase.swift */; };
 		042FD3162A55C63300D4AFF1 /* DefaultDeleteCardUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042FD3152A55C63300D4AFF1 /* DefaultDeleteCardUseCase.swift */; };
+		042FD3182A55D69D00D4AFF1 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042FD3172A55D69D00D4AFF1 /* AppError.swift */; };
+		042FD31A2A55D6CC00D4AFF1 /* AppString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042FD3192A55D6CC00D4AFF1 /* AppString.swift */; };
 		049B61B52A50863C00056D60 /* CardsManagementApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049B61B42A50863C00056D60 /* CardsManagementApp.swift */; };
 		049B61B72A50863C00056D60 /* CardsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049B61B62A50863C00056D60 /* CardsScreen.swift */; };
 		049B61B92A50863D00056D60 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 049B61B82A50863D00056D60 /* Assets.xcassets */; };
@@ -29,7 +31,7 @@
 		049B61FC2A523DF300056D60 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 049B61FB2A523DF300056D60 /* Realm */; };
 		049B61FE2A523DF300056D60 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 049B61FD2A523DF300056D60 /* RealmSwift */; };
 		049B62002A52401000056D60 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049B61FF2A52401000056D60 /* Storage.swift */; };
-		049B62022A5306B900056D60 /* Card+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049B62012A5306B900056D60 /* Card+Mapping.swift */; };
+		049B62022A5306B900056D60 /* CardDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049B62012A5306B900056D60 /* CardDTO+Mapping.swift */; };
 		049B62042A530CE600056D60 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049B62032A530CE600056D60 /* Card.swift */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +62,8 @@
 		042FD3112A55C5B200D4AFF1 /* DeleteCardUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteCardUseCase.swift; sourceTree = "<group>"; };
 		042FD3132A55C62A00D4AFF1 /* DefaultAddCardUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultAddCardUseCase.swift; sourceTree = "<group>"; };
 		042FD3152A55C63300D4AFF1 /* DefaultDeleteCardUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultDeleteCardUseCase.swift; sourceTree = "<group>"; };
+		042FD3172A55D69D00D4AFF1 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
+		042FD3192A55D6CC00D4AFF1 /* AppString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppString.swift; sourceTree = "<group>"; };
 		049B61B12A50863C00056D60 /* CardsManagement.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CardsManagement.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		049B61B42A50863C00056D60 /* CardsManagementApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsManagementApp.swift; sourceTree = "<group>"; };
 		049B61B62A50863C00056D60 /* CardsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsScreen.swift; sourceTree = "<group>"; };
@@ -74,7 +78,7 @@
 		049B61F32A51F83400056D60 /* CardsManagementDataSrc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsManagementDataSrc.swift; sourceTree = "<group>"; };
 		049B61F52A51F84100056D60 /* CardsManagementRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsManagementRepo.swift; sourceTree = "<group>"; };
 		049B61FF2A52401000056D60 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Storage.swift; path = ../../../../../../Documents/Storage.swift; sourceTree = "<group>"; };
-		049B62012A5306B900056D60 /* Card+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Card+Mapping.swift"; sourceTree = "<group>"; };
+		049B62012A5306B900056D60 /* CardDTO+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CardDTO+Mapping.swift"; sourceTree = "<group>"; };
 		049B62032A530CE600056D60 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -243,6 +247,7 @@
 		049B61E22A51DCDD00056D60 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				042FD3192A55D6CC00D4AFF1 /* AppString.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -326,7 +331,7 @@
 		049B61EE2A51EF9600056D60 /* DataMapping */ = {
 			isa = PBXGroup;
 			children = (
-				049B62012A5306B900056D60 /* Card+Mapping.swift */,
+				049B62012A5306B900056D60 /* CardDTO+Mapping.swift */,
 			);
 			path = DataMapping;
 			sourceTree = "<group>";
@@ -349,6 +354,7 @@
 		049B61F12A51F7B800056D60 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				042FD3172A55D69D00D4AFF1 /* AppError.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -499,8 +505,9 @@
 			files = (
 				049B61B72A50863C00056D60 /* CardsScreen.swift in Sources */,
 				042FD30A2A55AECE00D4AFF1 /* AddCardScreen.swift in Sources */,
+				042FD3182A55D69D00D4AFF1 /* AppError.swift in Sources */,
 				049B61F62A51F84100056D60 /* CardsManagementRepo.swift in Sources */,
-				049B62022A5306B900056D60 /* Card+Mapping.swift in Sources */,
+				049B62022A5306B900056D60 /* CardDTO+Mapping.swift in Sources */,
 				049B61E62A51EAEE00056D60 /* CardsManagementViewModel.swift in Sources */,
 				042FD3042A54E25800D4AFF1 /* CardsManagmentUseCase.swift in Sources */,
 				042FD3022A54E20900D4AFF1 /* DefaultCardsListUseCase.swift in Sources */,
@@ -512,6 +519,7 @@
 				042FD3142A55C62A00D4AFF1 /* DefaultAddCardUseCase.swift in Sources */,
 				042FD3002A54D0F100D4AFF1 /* DefaultCardsManagementRepository.swift in Sources */,
 				042FD30C2A55B07900D4AFF1 /* AddCardViewModel.swift in Sources */,
+				042FD31A2A55D6CC00D4AFF1 /* AppString.swift in Sources */,
 				049B62002A52401000056D60 /* Storage.swift in Sources */,
 				049B62042A530CE600056D60 /* Card.swift in Sources */,
 			);
