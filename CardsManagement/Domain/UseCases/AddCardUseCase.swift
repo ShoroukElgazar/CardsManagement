@@ -61,7 +61,4 @@ class AddCardUseCase: DefaultAddCardUseCase {
         let currentDate = Date()
         return expiryDate > currentDate
     }
-
-
 }
-extension String: Error {}
