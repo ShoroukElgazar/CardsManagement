@@ -9,7 +9,7 @@ import Combine
 
 class AddCardViewModel: ObservableObject {
     var addCardUseCase : DefaultAddCardUseCase
-
+    @Published var error : String? = nil
     
     init(addCardUseCase: DefaultAddCardUseCase) {
         self.addCardUseCase = addCardUseCase
