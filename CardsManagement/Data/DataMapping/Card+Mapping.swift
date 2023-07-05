@@ -12,7 +12,7 @@ class CardDTO : Object {
     @objc dynamic var id : String = UUID().uuidString
     @objc dynamic var cardHolder : String = ""
     @objc dynamic var cardNumber : String = ""
-    @objc dynamic var cvv : Int = 0
+    @objc dynamic var cvv : String = ""
     @objc dynamic var expiryDate : String = ""
 }
 

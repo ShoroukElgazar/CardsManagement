@@ -1,5 +1,5 @@
 //
-//  CardsManagmentUseCase.swift
+//  DeleteCardUseCase.swift
 //  CardsManagement
 //
 //  Created by Mac on 05/07/2023.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-class CardsListUseCase: DefaultCardsListUseCase {
+class DeleteCardUseCase: DefaultDeleteCardUseCase {
     
     private var repo : DefaultCardsManagementRepository
     
@@ -15,8 +15,12 @@ class CardsListUseCase: DefaultCardsListUseCase {
         self.repo = repo
     }
     
-    func getAllCards() throws -> [Card]? {
-        try repo.getAllCards()
+    func deleteCard(id: String) throws {
+        try repo.deleteCard(id: id)
     }
- 
+    
+    func deleteAllCards() throws {
+        try repo.deleteAllCards()
+    }
+
 }

@@ -8,16 +8,16 @@
 import Combine
 
 class CardsManagementViewModel: ObservableObject {
-    var cardsManagmentUseCase : CardsManagmentUseCase
+    var cardsListUseCase : DefaultCardsListUseCase
     @Published var cards: [Card] = []
-    init(cardsManagmentUseCase: CardsManagmentUseCase) {
-        self.cardsManagmentUseCase = cardsManagmentUseCase
+    init(cardsListUseCase: DefaultCardsListUseCase) {
+        self.cardsListUseCase = cardsListUseCase
         loadCards()
     }
     
     func loadCards() {
         do{
-            cards = try cardsManagmentUseCase.getAllCards() ?? []
+            cards = try cardsListUseCase.getAllCards() ?? []
         } catch {
             print(error)
         }

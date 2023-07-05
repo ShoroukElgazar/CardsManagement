@@ -11,6 +11,6 @@ struct Card  {
    var id : String = ""
    var cardHolder : String = ""
    var cardNumber : String = ""
-   var cvv : Int = 0
+   var cvv : String = ""
    var expiryDate : String = ""
 }

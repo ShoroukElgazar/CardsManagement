@@ -10,11 +10,11 @@ import SwiftUI
 struct CardsScreen: View {
     var body: some View {
         NavigationView {
-                ZStack
-                {
-                    CardsView()
-   
-                }
+            ZStack
+            {
+                CardsView()
+                
+            }
         }
     }
     
@@ -23,19 +23,16 @@ struct CardsScreen: View {
             Text("No cards yet")
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
-                        Image(systemName: "plus")
-                            .font(.system(size: 25))
-                            .fontWeight(.bold)
-                            .onTapGesture {
-                                print("add")
-                            }
-                         
+                        NavigationLink(destination: AddCardScreen(vm: AddCardViewModel(addCardUseCase: AddCardUseCase(repo: CardsManagementRepo(localDataSrc: CardsManagementLocalDataSrc()))))) {
+                            Image(systemName: "plus")
+                                .font(.system(size: 25))
+                                .fontWeight(.bold)
+                        }
                     }
                 }
-        }
-        
-    }
-
+           }
+       }
+    
 }
 
 struct CardsScreen_Previews: PreviewProvider {

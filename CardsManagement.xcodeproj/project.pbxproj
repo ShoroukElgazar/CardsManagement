@@ -8,10 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		042FD3002A54D0F100D4AFF1 /* DefaultCardsManagementRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042FD2FF2A54D0F100D4AFF1 /* DefaultCardsManagementRepository.swift */; };
-		042FD3022A54E20900D4AFF1 /* DefaultCardsManagmentUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042FD3012A54E20900D4AFF1 /* DefaultCardsManagmentUseCase.swift */; };
+		042FD3022A54E20900D4AFF1 /* DefaultCardsListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042FD3012A54E20900D4AFF1 /* DefaultCardsListUseCase.swift */; };
 		042FD3042A54E25800D4AFF1 /* CardsManagmentUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042FD3032A54E25800D4AFF1 /* CardsManagmentUseCase.swift */; };
+		042FD30A2A55AECE00D4AFF1 /* AddCardScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042FD3092A55AECE00D4AFF1 /* AddCardScreen.swift */; };
+		042FD30C2A55B07900D4AFF1 /* AddCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042FD30B2A55B07900D4AFF1 /* AddCardViewModel.swift */; };
+		042FD3102A55C59B00D4AFF1 /* AddCardUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042FD30F2A55C59B00D4AFF1 /* AddCardUseCase.swift */; };
+		042FD3122A55C5B200D4AFF1 /* DeleteCardUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042FD3112A55C5B200D4AFF1 /* DeleteCardUseCase.swift */; };
+		042FD3142A55C62A00D4AFF1 /* DefaultAddCardUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042FD3132A55C62A00D4AFF1 /* DefaultAddCardUseCase.swift */; };
+		042FD3162A55C63300D4AFF1 /* DefaultDeleteCardUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042FD3152A55C63300D4AFF1 /* DefaultDeleteCardUseCase.swift */; };
 		049B61B52A50863C00056D60 /* CardsManagementApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049B61B42A50863C00056D60 /* CardsManagementApp.swift */; };
-		049B61B72A50863C00056D60 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049B61B62A50863C00056D60 /* ContentView.swift */; };
+		049B61B72A50863C00056D60 /* CardsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049B61B62A50863C00056D60 /* CardsScreen.swift */; };
 		049B61B92A50863D00056D60 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 049B61B82A50863D00056D60 /* Assets.xcassets */; };
 		049B61BC2A50863D00056D60 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 049B61BB2A50863D00056D60 /* Preview Assets.xcassets */; };
 		049B61C62A50863D00056D60 /* CardsManagementTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049B61C52A50863D00056D60 /* CardsManagementTests.swift */; };
@@ -46,11 +52,17 @@
 
 /* Begin PBXFileReference section */
 		042FD2FF2A54D0F100D4AFF1 /* DefaultCardsManagementRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultCardsManagementRepository.swift; sourceTree = "<group>"; };
-		042FD3012A54E20900D4AFF1 /* DefaultCardsManagmentUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultCardsManagmentUseCase.swift; sourceTree = "<group>"; };
+		042FD3012A54E20900D4AFF1 /* DefaultCardsListUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultCardsListUseCase.swift; sourceTree = "<group>"; };
 		042FD3032A54E25800D4AFF1 /* CardsManagmentUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsManagmentUseCase.swift; sourceTree = "<group>"; };
+		042FD3092A55AECE00D4AFF1 /* AddCardScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCardScreen.swift; sourceTree = "<group>"; };
+		042FD30B2A55B07900D4AFF1 /* AddCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCardViewModel.swift; sourceTree = "<group>"; };
+		042FD30F2A55C59B00D4AFF1 /* AddCardUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCardUseCase.swift; sourceTree = "<group>"; };
+		042FD3112A55C5B200D4AFF1 /* DeleteCardUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteCardUseCase.swift; sourceTree = "<group>"; };
+		042FD3132A55C62A00D4AFF1 /* DefaultAddCardUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultAddCardUseCase.swift; sourceTree = "<group>"; };
+		042FD3152A55C63300D4AFF1 /* DefaultDeleteCardUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultDeleteCardUseCase.swift; sourceTree = "<group>"; };
 		049B61B12A50863C00056D60 /* CardsManagement.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CardsManagement.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		049B61B42A50863C00056D60 /* CardsManagementApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsManagementApp.swift; sourceTree = "<group>"; };
-		049B61B62A50863C00056D60 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		049B61B62A50863C00056D60 /* CardsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsScreen.swift; sourceTree = "<group>"; };
 		049B61B82A50863D00056D60 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		049B61BB2A50863D00056D60 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		049B61C12A50863D00056D60 /* CardsManagementTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CardsManagementTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -100,6 +112,31 @@
 				049B61E42A51EAB800056D60 /* ViewModel */,
 			);
 			path = CardsScreen;
+			sourceTree = "<group>";
+		};
+		042FD3062A55AE9800D4AFF1 /* AddCardScreen */ = {
+			isa = PBXGroup;
+			children = (
+				042FD3082A55AEAF00D4AFF1 /* View */,
+				042FD3072A55AEA600D4AFF1 /* ViewModel */,
+			);
+			path = AddCardScreen;
+			sourceTree = "<group>";
+		};
+		042FD3072A55AEA600D4AFF1 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				042FD30B2A55B07900D4AFF1 /* AddCardViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		042FD3082A55AEAF00D4AFF1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				042FD3092A55AECE00D4AFF1 /* AddCardScreen.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		049B61A82A50863C00056D60 = {
@@ -188,6 +225,8 @@
 		049B61E02A51DCCB00056D60 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				049B61B42A50863C00056D60 /* CardsManagementApp.swift */,
+				042FD3062A55AE9800D4AFF1 /* AddCardScreen */,
 				042FD3052A55AE0700D4AFF1 /* CardsScreen */,
 			);
 			path = Presentation;
@@ -211,8 +250,7 @@
 		049B61E32A51EAAC00056D60 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				049B61B42A50863C00056D60 /* CardsManagementApp.swift */,
-				049B61B62A50863C00056D60 /* ContentView.swift */,
+				049B61B62A50863C00056D60 /* CardsScreen.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -229,6 +267,8 @@
 			isa = PBXGroup;
 			children = (
 				042FD3032A54E25800D4AFF1 /* CardsManagmentUseCase.swift */,
+				042FD30F2A55C59B00D4AFF1 /* AddCardUseCase.swift */,
+				042FD3112A55C5B200D4AFF1 /* DeleteCardUseCase.swift */,
 				049B61E82A51EE0300056D60 /* Protocol */,
 			);
 			path = UseCases;
@@ -237,7 +277,9 @@
 		049B61E82A51EE0300056D60 /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
-				042FD3012A54E20900D4AFF1 /* DefaultCardsManagmentUseCase.swift */,
+				042FD3012A54E20900D4AFF1 /* DefaultCardsListUseCase.swift */,
+				042FD3132A55C62A00D4AFF1 /* DefaultAddCardUseCase.swift */,
+				042FD3152A55C63300D4AFF1 /* DefaultDeleteCardUseCase.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -455,15 +497,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				049B61B72A50863C00056D60 /* ContentView.swift in Sources */,
+				049B61B72A50863C00056D60 /* CardsScreen.swift in Sources */,
+				042FD30A2A55AECE00D4AFF1 /* AddCardScreen.swift in Sources */,
 				049B61F62A51F84100056D60 /* CardsManagementRepo.swift in Sources */,
 				049B62022A5306B900056D60 /* Card+Mapping.swift in Sources */,
 				049B61E62A51EAEE00056D60 /* CardsManagementViewModel.swift in Sources */,
 				042FD3042A54E25800D4AFF1 /* CardsManagmentUseCase.swift in Sources */,
-				042FD3022A54E20900D4AFF1 /* DefaultCardsManagmentUseCase.swift in Sources */,
+				042FD3022A54E20900D4AFF1 /* DefaultCardsListUseCase.swift in Sources */,
+				042FD3162A55C63300D4AFF1 /* DefaultDeleteCardUseCase.swift in Sources */,
+				042FD3122A55C5B200D4AFF1 /* DeleteCardUseCase.swift in Sources */,
 				049B61B52A50863C00056D60 /* CardsManagementApp.swift in Sources */,
 				049B61F42A51F83400056D60 /* CardsManagementDataSrc.swift in Sources */,
+				042FD3102A55C59B00D4AFF1 /* AddCardUseCase.swift in Sources */,
+				042FD3142A55C62A00D4AFF1 /* DefaultAddCardUseCase.swift in Sources */,
 				042FD3002A54D0F100D4AFF1 /* DefaultCardsManagementRepository.swift in Sources */,
+				042FD30C2A55B07900D4AFF1 /* AddCardViewModel.swift in Sources */,
 				049B62002A52401000056D60 /* Storage.swift in Sources */,
 				049B62042A530CE600056D60 /* Card.swift in Sources */,
 			);
