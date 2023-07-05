@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 
 struct AddCardScreen: View {
     
@@ -19,10 +20,16 @@ struct AddCardScreen: View {
     
     var body: some View {
         VStack(spacing: 20){
-            TextField("Card Holder Name", text: $cardHolderName).withBorder()
-            TextField("Card Holder Number", text: $cardHolderNumber).withBorder()
-            TextField("CVV", text: $cardCvv).withBorder()
-            TextField("Expiry Date", text: $cardExpiryDate).withBorder()
+            
+            EntryField(title: "Card Holder Name", placeHoler: "Your Name", text: $cardHolderName)
+            
+            EntryField(title: "Card Holder Number", placeHoler: "card number", text: $cardHolderNumber)
+            
+            EntryField(title: "CVV", placeHoler: "cvv", text: $cardCvv)
+         
+            ExpiryDateField()
+    
+
             Text(error)
                 .foregroundColor(.red)
 
@@ -43,7 +50,34 @@ struct AddCardScreen: View {
             Spacer()
         }.padding()
     }
+    
+    private func EntryField(title: String,placeHoler: String,text: Binding<String>) -> some View {
+        VStack(alignment: .leading){
+            Text(title)
+            TextField(placeHoler, text: text).withBorder()
+        }
+    }
+    
+    private func ExpiryDateField() -> some View {
+        VStack(alignment: .leading){
+            Text("Expiry Date")
+            TextField("MM/YY", text: $cardExpiryDate)
+                .withBorder()
+                .onChange(of: cardExpiryDate) { newValue
+                    in
+                    print(newValue.count)
+                    if newValue.count > 2 {
+                        let monthIndex = newValue.index(newValue.startIndex, offsetBy: 2)
+                        let yearIndex = newValue.index(newValue.startIndex, offsetBy: 2)
+                        let month = newValue[..<monthIndex]
+                        let year = newValue[yearIndex...].trimmingCharacters(in: CharacterSet(charactersIn: "/"))
+                        cardExpiryDate = "\(month)/\(year.prefix(2))"
+                    }
+                }
+        }
+    }
 }
+
 
 extension TextField {
     func withBorder() -> some View {
