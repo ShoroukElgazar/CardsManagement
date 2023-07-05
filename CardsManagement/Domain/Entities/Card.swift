@@ -8,9 +8,9 @@
 import Foundation
 
 struct Card  {
-   var id : String = ""
    var cardHolder : String = ""
    var cardNumber : String = ""
    var cvv : String = ""
    var expiryDate : String = ""
+   var amount: String = ""
 }

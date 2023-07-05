@@ -1,5 +1,5 @@
 //
-//  Card.swift
+//  CardDTO.swift
 //  CardsManagement
 //
 //  Created by Mac on 03/07/2023.
@@ -14,6 +14,7 @@ class CardDTO : Object {
     @objc dynamic var cardNumber : String = ""
     @objc dynamic var cvv : String = ""
     @objc dynamic var expiryDate : String = ""
+    @objc dynamic var amount : String = ""
 }
 
 // MARK: - Mappings to Domain
@@ -25,6 +26,6 @@ extension CardDTO {
         let expiryDate = expiryDate
         let id = id
         
-        return Card(id: id,cardHolder: cardHolder,cardNumber: cardNumber,cvv: cvv,expiryDate: expiryDate)
+        return Card(cardHolder: cardHolder,cardNumber: cardNumber,cvv: cvv,expiryDate: expiryDate,amount: amount)
     }
 }

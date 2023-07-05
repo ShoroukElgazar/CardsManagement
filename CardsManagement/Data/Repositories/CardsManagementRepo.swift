@@ -42,7 +42,6 @@ class CardsManagementRepo: DefaultCardsManagementRepository {
     
    private func toDTO(card: Card) -> CardDTO {
         let cardDTO = CardDTO()
-        cardDTO.id = card.id
         cardDTO.cardHolder = card.cardHolder
         cardDTO.cardNumber = card.cardNumber
         cardDTO.cvv = card.cvv

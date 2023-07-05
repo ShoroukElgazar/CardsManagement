@@ -13,28 +13,23 @@ class AddCardUseCase: DefaultAddCardUseCase {
     init(repo: DefaultCardsManagementRepository) {
         self.repo = repo
     }
-    enum ValidationError: Error {
-            case invalidCardHolderName
-            case invalidCardHolderNumber
-            case invalidCardCvv
-            case invalidCardExpiryDate
-        }
+  
         
     func saveCard(card: Card) throws {
         guard isCardHolderNameValid(name: card.cardHolder) else {
-            throw ValidationError.invalidCardHolderName
+            throw "invalidCardHolderName"
         }
          
         guard isCardHolderNumberValid(cardNumber: card.cardNumber) else {
-               throw ValidationError.invalidCardHolderNumber
+            throw "invalidCardHolderNumber"
            }
         
         guard isCardCvvValid(cvv: card.cvv) else {
-               throw ValidationError.invalidCardCvv
+            throw "invalidCardCvv"
            }
         
         guard isCardExpiryDateValid(expiryDate: card.expiryDate) else {
-               throw ValidationError.invalidCardExpiryDate
+            throw "invalidCardExpiryDate"
            }
            
            try repo.saveCard(card: card)
@@ -69,3 +64,4 @@ class AddCardUseCase: DefaultAddCardUseCase {
 
 
 }
+extension String: Error {}
