@@ -79,13 +79,4 @@ struct AddCardScreen: View {
 }
 
 
-extension TextField {
-    func withBorder() -> some View {
-        self
-            .padding()
-            .background(
-                RoundedRectangle(cornerRadius: 8)
-                    .stroke(Color.gray, lineWidth: 1)
-            )
-    }
-}
+
