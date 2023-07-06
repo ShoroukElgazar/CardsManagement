@@ -20,15 +20,14 @@ extension View {
 }
 
 extension View {
-    func errorAlert(showingErrorAlert: Binding<Bool>,errorReason: String, buttonTitle: String = "OK") -> some View {
-        return alert("Error", isPresented: showingErrorAlert) {
+    func showAlert(showingAlert: Binding<Bool>, alertTitle: String, message: String, buttonTitle: String = "OK") -> some View {
+        return alert(alertTitle, isPresented: showingAlert) {
             Button(buttonTitle) {
             }
         } message: {
-            Text(errorReason)
+            Text(message)
         }
 
     }
 }
-
 

@@ -13,6 +13,7 @@ struct CardsScreen: View {
     @ObservedResults(CardDTO.self) var cards
     @State private var showAmountAlert = false
     @State private var showErrorAlert = false
+    @State private var showDeleteConfirmationDialog = false
     @State private var amount = "0"
     @State var cardType : CardType =  .Unknown
     @State private var selectedCardID = ""
@@ -22,8 +23,6 @@ struct CardsScreen: View {
             ZStack
             {
                 CardsView()
-            }.onAppear{
-                print(cards)
             }
         }
     }
@@ -44,8 +43,14 @@ struct CardsScreen: View {
         .textFieldAlert(isPresented:  $showAmountAlert, title: "Recharge Your Card", text: $amount, placeholder: "", action: { amount in
             handleCardRecharging(amount: amount)
         })
-        .errorAlert(showingErrorAlert: $showErrorAlert, errorReason: vm.error)
-    }
+        .showAlert(showingAlert: $showErrorAlert, alertTitle: "", message: vm.error)
+        .confirmationDialog("Confirm Delete", isPresented: $showDeleteConfirmationDialog) {
+            Button("Delete") {
+                vm.deleteCard(id: selectedCardID)
+            }
+        } message: {
+            Text("Are you sure?")
+        }    }
     
     private func CardsList() -> some View {
         List(cards){ card in
@@ -89,8 +94,8 @@ struct CardsScreen: View {
     private func DeleteCard(id: String) -> some View {
         Group{
             Button(role: .destructive) {
-                vm.deleteCard(id: id)
-                print("delete")
+                showDeleteConfirmationDialog =  true
+                selectedCardID = id
             } label: {
                 Label("Delete", systemImage: "trash.fill")
             }
