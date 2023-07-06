@@ -14,6 +14,7 @@ struct CardsScreen: View {
     @State private var showAmountAlert = false
     @State private var showErrorAlert = false
     @State private var amount = "0"
+    @State var cardType : CardType =  .Unknown
     @State private var selectedCardID = ""
     
     var body: some View {
@@ -21,6 +22,8 @@ struct CardsScreen: View {
             ZStack
             {
                 CardsView()
+            }.onAppear{
+                print(cards)
             }
         }
     }
@@ -52,6 +55,7 @@ struct CardsScreen: View {
                     Text(card.cardNumber)
                     Text(card.expiryDate)
                     Text(card.amount)
+                    Image(card.cardTypeValue.loadIcon())
                 }
                 Spacer()
                 Button {
@@ -67,10 +71,7 @@ struct CardsScreen: View {
                 .cardView()
                 .cornerRadius(5)
                 .shadow(radius: 3)
-                .onAppear{
-                    print("appeared")
-                }
-            
+
         }.listRowSeparator(.hidden)
             .background(Color.clear)
             .listStyle(.plain)

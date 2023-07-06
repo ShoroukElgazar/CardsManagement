@@ -66,7 +66,7 @@ struct AddCardScreen: View {
     private func AddCardButton() -> some View {
         Button {
             vm.addCard(card: Card(cardHolder: cardHolderName,cardNumber: cardHolderNumber.extractNumericCharacters()
-                                  ,cvv: cardCvv,expiryDate: cardExpiryDate,cardType: cardType.rawValue))
+                                  ,cvv: cardCvv,expiryDate: cardExpiryDate,cardType: cardType))
             error = vm.error
             
         } label: {

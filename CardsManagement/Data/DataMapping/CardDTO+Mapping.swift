@@ -16,6 +16,15 @@ class CardDTO : Object, Identifiable {
     @Persisted var expiryDate : String = ""
     @Persisted var amount : String = ""
     @Persisted var cardType: String = ""
+    
+    var cardTypeValue: CardType {
+            get {
+                return CardType(rawValue: cardType) ?? .Unknown
+            }
+            set {
+                cardType = newValue.rawValue
+            }
+        }
 }
 
 // MARK: - Mappings to Domain
@@ -28,6 +37,6 @@ extension CardDTO {
         let expiryDate = expiryDate
         let cardType = cardType
         
-        return Card(id: id,cardHolder: cardHolder,cardNumber: cardNumber,cvv: cvv,expiryDate: expiryDate,amount: amount,cardType: cardType)
+        return Card(id: id,cardHolder: cardHolder,cardNumber: cardNumber,cvv: cvv,expiryDate: expiryDate,amount: amount,cardType: CardType(rawValue: cardType) ?? .Unknown)
     }
 }

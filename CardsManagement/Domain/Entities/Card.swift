@@ -13,6 +13,6 @@ struct Card: Identifiable {
    var cardNumber : String = ""
    var cvv : String = ""
    var expiryDate : String = ""
-   var amount: String = "0"
-   var cardType: String = ""
+   var amount: String = "0.00"
+   var cardType: CardType = .Unknown
 }
