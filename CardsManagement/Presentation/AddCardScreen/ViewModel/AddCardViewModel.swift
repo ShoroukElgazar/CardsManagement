@@ -10,6 +10,7 @@ import Foundation
 
 class AddCardViewModel: ObservableObject {
     var addCardUseCase : DefaultAddCardUseCase
+    var creditCardValidationType : CreditCardValidationType = CreditCardValidationType()
     @Published var error : String = ""
     
     init(addCardUseCase: DefaultAddCardUseCase) {
@@ -25,5 +26,6 @@ class AddCardViewModel: ObservableObject {
         }
     }
     
+ 
 }
 

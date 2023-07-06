@@ -17,36 +17,22 @@ struct AddCardScreen: View {
     @State var cardCvv = ""
     @State var cardExpiryDate = ""
     @State var error = ""
+    @State var cardType : CardType =  .Unknown
     
     var body: some View {
         VStack(spacing: 20){
             
             EntryField(title: "Card Holder Name", placeHoler: "Your Name", text: $cardHolderName)
-            
-            EntryField(title: "Card Holder Number", placeHoler: "card number", text: $cardHolderNumber)
-            
-            EntryField(title: "CVV", placeHoler: "cvv", text: $cardCvv)
-         
-            ExpiryDateField()
-    
 
+            EntryField(title: "CVV", placeHoler: "cvv", text: $cardCvv)
+            
+           CardHolderNumber()
+            
             Text(error)
                 .foregroundColor(.red)
-
-            Button {
-                vm.addCard(card: Card(cardHolder: cardHolderName,cardNumber: cardHolderNumber,cvv: cardCvv,expiryDate: cardExpiryDate))
-                error = vm.error
-            } label: {
-                Text("Add Card")
-                        .frame(maxWidth: .infinity, minHeight: 52)
-                        .background(Color.blue)
-                        .foregroundColor(.white)
-                        .cornerRadius(8)
-                        .padding(.leading, 20)
-                        .padding(.trailing, 20)
-            }
-                
-                
+            
+            AddCardButton()
+            
             Spacer()
         }.padding()
     }
@@ -74,6 +60,37 @@ struct AddCardScreen: View {
                         cardExpiryDate = "\(month)/\(year.prefix(2))"
                     }
                 }
+        }
+    }
+    
+    private func AddCardButton() -> some View {
+        Button {
+            vm.addCard(card: Card(cardHolder: cardHolderName,cardNumber: cardHolderNumber,cvv: cardCvv,expiryDate: cardExpiryDate))
+            error = vm.error
+            
+        } label: {
+            Text("Add Card")
+                .frame(maxWidth: .infinity, minHeight: 52)
+                .background(Color.blue)
+                .foregroundColor(.white)
+                .cornerRadius(8)
+                .padding(.leading, 20)
+                .padding(.trailing, 20)
+        }
+    }
+    
+    
+    private func CardHolderNumber() -> some View {
+        VStack(alignment: .leading){
+            Text("Card Holder Number")
+            HStack{
+                TextField("card number", text: $cardHolderNumber)
+                    .withBorder()
+                    .onChange(of: cardHolderNumber) { newValue in
+                        cardType = vm.creditCardValidationType.getCardType(cardNumber: cardHolderNumber)
+                    }
+                Image(cardType.loadIcon())
+            }
         }
     }
 }

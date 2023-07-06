@@ -24,7 +24,6 @@ extension CardDTO {
         let cardNumber = cardNumber
         let cvv = cvv
         let expiryDate = expiryDate
-        let id = id
         
         return Card(cardHolder: cardHolder,cardNumber: cardNumber,cvv: cvv,expiryDate: expiryDate,amount: amount)
     }
