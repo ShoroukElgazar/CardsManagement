@@ -42,45 +42,48 @@ struct CardsScreen: View {
                 }
         }
         .textFieldAlert(isPresented:  $showAmountAlert, title: "Recharge Your Card", text: $amount, placeholder: "", action: { amount in
-          handleCardRecharging(amount: amount)
+            handleCardRecharging(amount: amount)
         })
         .errorAlert(showingErrorAlert: $showErrorAlert, errorReason: vm.error)
-       }
+    }
     
     private func CardsList() -> some View {
         List(cards){ card in
-            HStack{
-                VStack(alignment: .leading){
-                    Text(card.cardHolder)
-                    Text(card.cardNumber)
-                    Text(card.expiryDate)
-                    Text(card.amount)
-                    Image(card.cardTypeValue.loadIcon())
-                }
-                Spacer()
-                Button {
-                    amount = "0"
-                    showAmountAlert = true
-                    self.selectedCardID = card.id
-                } label: {
-                    Text("Recharge")
-                }
-
-            }.padding()
-                .background(Color.indigo.opacity(0.2))
-                .cardView()
-                .cornerRadius(5)
-                .shadow(radius: 3)
-                .swipeActions(allowsFullSwipe: false) {
-                  
-                    DeleteCard(id: card.id)
-                }
-
+            Card(card: card)
         }.listRowSeparator(.hidden)
             .background(Color.clear)
             .listStyle(.plain)
             .listRowBackground(Color.clear)
         
+    }
+    
+    private func Card(card: CardDTO) -> some View {
+        HStack{
+            VStack(alignment: .leading){
+                Text(card.cardHolder)
+                Text(card.cardNumber)
+                Text(card.expiryDate)
+                Text(card.amount)
+                Image(card.cardTypeValue.loadIcon())
+            }
+            Spacer()
+            Button {
+                amount = "0"
+                showAmountAlert = true
+                self.selectedCardID = card.id
+            } label: {
+                Text("Recharge")
+            }
+            
+        }.padding()
+            .background(Color.indigo.opacity(0.2))
+            .cardView()
+            .cornerRadius(5)
+            .shadow(radius: 3)
+            .swipeActions(allowsFullSwipe: false) {
+                
+                DeleteCard(id: card.id)
+            }
     }
     
     private func DeleteCard(id: String) -> some View {
