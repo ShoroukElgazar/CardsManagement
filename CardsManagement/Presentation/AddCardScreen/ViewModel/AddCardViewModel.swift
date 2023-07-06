@@ -17,13 +17,13 @@ class AddCardViewModel: ObservableObject {
         self.addCardUseCase = addCardUseCase
     }
    
-    func addCard(card: Card) {
-        do{
+    func addCard(card: Card) throws {
+//        do{
             try addCardUseCase.saveCard(card: card)
-        } catch {
-           
-            self.error = error.localizedDescription
-        }
+//        } catch {
+//
+//            self.error = error.localizedDescription
+//        }
     }
     
  

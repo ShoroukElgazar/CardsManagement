@@ -18,6 +18,8 @@ struct AddCardScreen: View {
     @State var cardExpiryDate = ""
     @State var error = ""
     @State var cardType : CardType =  .Unknown
+    @Environment(\.presentationMode) var presentationMode
+
     
     var body: some View {
         VStack(spacing: 20){
@@ -65,10 +67,13 @@ struct AddCardScreen: View {
     
     private func AddCardButton() -> some View {
         Button {
-            vm.addCard(card: Card(cardHolder: cardHolderName,cardNumber: cardHolderNumber.extractNumericCharacters()
-                                  ,cvv: cardCvv,expiryDate: cardExpiryDate,cardType: cardType))
-            error = vm.error
-            
+            do{
+                try vm.addCard(card: Card(cardHolder: cardHolderName,cardNumber: cardHolderNumber.extractNumericCharacters()
+                                      ,cvv: cardCvv,expiryDate: cardExpiryDate,cardType: cardType))
+                presentationMode.wrappedValue.dismiss()
+            } catch {
+                self.error = error.localizedDescription
+            }
         } label: {
             Text("Add Card")
                 .frame(maxWidth: .infinity, minHeight: 52)
