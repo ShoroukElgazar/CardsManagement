@@ -24,13 +24,13 @@ struct TextFieldAlert: ViewModifier {
             if isPresented {
                 VStack {
                     Text(title).font(.headline).padding()
-                    ZStack(alignment: .leading) {
+                    ZStack(alignment: .center) {
                         TextField(placeholder, text: $text)
                             .foregroundColor(.clear)
-                        //                            .keyboardType(.numberPad)
-                        //                            .textFieldStyle(PlainTextFieldStyle())
+                            .keyboardType(.numberPad)
                             .disableAutocorrection(true)
                             .accentColor(.clear)
+                        
                         Text("\(enteredNumberFormatted, specifier: "%.2f")")
                     }
                     Divider()
@@ -47,10 +47,8 @@ struct TextFieldAlert: ViewModifier {
                         Divider()
                         Spacer()
                         Button() {
-                            print("sssss",String(enteredNumberFormatted))
                             action(String(enteredNumberFormatted))
-                            
-                            
+
                             withAnimation {
                                 isPresented.toggle()
                             }
@@ -61,7 +59,7 @@ struct TextFieldAlert: ViewModifier {
                     }
                 }
                 .background(.background)
-                .frame(width: 300, height: 200)
+                .frame(width: 300, height: 150)
                 .cornerRadius(20)
                 .overlay {
                     RoundedRectangle(cornerRadius: 20)
