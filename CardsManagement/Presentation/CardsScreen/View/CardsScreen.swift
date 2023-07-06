@@ -6,19 +6,21 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 struct CardsScreen: View {
-    @State var vm: CardsViewModel
+    var vm: CardsViewModel
+    @ObservedResults(CardDTO.self) var cards
+    @State private var showAmountAlert = false
+    @State private var showErrorAlert = false
+    @State private var amount = "0"
+    @State private var selectedCardID = ""
+    
     var body: some View {
         NavigationView {
             ZStack
             {
                 CardsView()
-                
-            }.onAppear{
-                print("cardslist:",vm.cards)
-
-               
             }
         }
     }
@@ -35,24 +37,57 @@ struct CardsScreen: View {
                         }
                     }
                 }
-           }
+        }
+        .textFieldAlert(isPresented:  $showAmountAlert, title: "Recharge Your Card", text: $amount, placeholder: "", action: { amount in
+          handleCardRecharging(amount: amount)
+        })
+        .errorAlert(showingErrorAlert: $showErrorAlert, errorReason: vm.error)
        }
+    
     private func CardsList() -> some View {
-      
-        List(vm.cards){ card in
+        List(cards){ card in
             HStack{
-                Text(card.cardHolder)
+                VStack(alignment: .leading){
+                    Text(card.cardHolder)
+                    Text(card.cardNumber)
+                    Text(card.expiryDate)
+                    Text(card.amount)
+                }
                 Spacer()
                 Button {
+                    amount = "0"
+                    showAmountAlert = true
+                    self.selectedCardID = card.id
                 } label: {
                     Text("Recharge")
                 }
 
-            }
+            }.padding()
+                .background(Color.indigo.opacity(0.2))
+                .cardView()
+                .cornerRadius(5)
+                .shadow(radius: 3)
+                .onAppear{
+                    print("appeared")
+                }
             
-        }
+        }.listRowSeparator(.hidden)
+            .background(Color.clear)
+            .listStyle(.plain)
+            .listRowBackground(Color.clear)
         
     }
+    
+    private func handleCardRecharging(amount: String) {
+        vm.rechargeCard(id: selectedCardID, newAmount: amount)
+        if vm.showValidationError {
+            showErrorAlert = true
+        }else{
+            showErrorAlert = false
+        }
+    }
 }
+
+
 
 
