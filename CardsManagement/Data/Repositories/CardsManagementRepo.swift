@@ -32,6 +32,10 @@ class CardsManagementRepo: DefaultCardsManagementRepository {
         try localDataSrc.saveCard(card: toDTO(card: card))
     }
     
+    func updateCardAmount(id: String, newAmount: String) throws {
+        try localDataSrc.updateCardAmount(id: id, newAmount: newAmount)
+    }
+    
     func deleteCard(id: String) throws {
         try localDataSrc.deleteCard(id: id)
     }

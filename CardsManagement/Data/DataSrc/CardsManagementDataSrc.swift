@@ -13,9 +13,11 @@ import Foundation
 protocol DefaultCardsManagementDataSrc {
     func getAllCards() throws -> [CardDTO]?
     func saveCard(card: CardDTO) throws
+    func updateCardAmount(id: String, newAmount: String) throws
     func deleteCard(id: String) throws
     func deleteAllCards() throws
 }
+
 
 class CardsManagementLocalDataSrc: DefaultCardsManagementDataSrc{
     var storage =  Storage.sharedInstance()
@@ -34,6 +36,10 @@ class CardsManagementLocalDataSrc: DefaultCardsManagementDataSrc{
     
     func deleteAllCards() throws {
         try storage.deleteAllCards()
+    }
+    
+    func updateCardAmount(id: String, newAmount: String) throws {
+        try storage.updateCardAmount(id: id, newAmount: newAmount)
     }
         
 }
