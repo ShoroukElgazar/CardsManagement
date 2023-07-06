@@ -46,6 +46,8 @@ class CardsManagementRepo: DefaultCardsManagementRepository {
         cardDTO.cardNumber = card.cardNumber
         cardDTO.cvv = card.cvv
         cardDTO.expiryDate = card.expiryDate
+        cardDTO.amount = card.amount
+        cardDTO.cardType = card.cardType
            return cardDTO
        }
     

@@ -37,32 +37,28 @@ enum CardType: String {
         }
     }
 }
-
-public struct CreditCardValidationType{
+public struct CreditCardValidationType {
+    
     func getCardType(cardNumber: String) -> CardType {
-        let input = cardNumber
-        let numberOnly = input.replacingOccurrences(of: "[^0-9]", with: "", options: .regularExpression)
-        
         var type: CardType = .Unknown
-        
         for card in CardType.allCards {
-            if (matchesRegex(regex: card.regex, text: numberOnly)) {
+            if matchesRegex(regex: card.regex, text: cardNumber) {
                 type = card
                 break
             }
         }
+        
         return type
     }
     
-   private func matchesRegex(regex: String!, text: String!) -> Bool {
+    private func matchesRegex(regex: String, text: String) -> Bool {
         do {
             let regex = try NSRegularExpression(pattern: regex, options: [.caseInsensitive])
-            let nsString = text as NSString
-            let match = regex.firstMatch(in: text, options: [], range: NSMakeRange(0, nsString.length))
-            return (match != nil)
+            let range = NSRange(location: 0, length: text.utf16.count)
+            let matches = regex.matches(in: text, options: [], range: range)
+            return matches.count > 0
         } catch {
             return false
         }
-        
     }
 }

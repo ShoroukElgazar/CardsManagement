@@ -23,10 +23,12 @@ struct AddCardScreen: View {
         VStack(spacing: 20){
             
             EntryField(title: "Card Holder Name", placeHoler: "Your Name", text: $cardHolderName)
+            
+            CardHolderNumberField()
 
             EntryField(title: "CVV", placeHoler: "cvv", text: $cardCvv)
             
-           CardHolderNumber()
+            ExpiryDateField()
             
             Text(error)
                 .foregroundColor(.red)
@@ -49,9 +51,7 @@ struct AddCardScreen: View {
             Text("Expiry Date")
             TextField("MM/YY", text: $cardExpiryDate)
                 .withBorder()
-                .onChange(of: cardExpiryDate) { newValue
-                    in
-                    print(newValue.count)
+                .onChange(of: cardExpiryDate) { newValue in
                     if newValue.count > 2 {
                         let monthIndex = newValue.index(newValue.startIndex, offsetBy: 2)
                         let yearIndex = newValue.index(newValue.startIndex, offsetBy: 2)
@@ -65,7 +65,8 @@ struct AddCardScreen: View {
     
     private func AddCardButton() -> some View {
         Button {
-            vm.addCard(card: Card(cardHolder: cardHolderName,cardNumber: cardHolderNumber,cvv: cardCvv,expiryDate: cardExpiryDate))
+            vm.addCard(card: Card(cardHolder: cardHolderName,cardNumber: cardHolderNumber.extractNumericCharacters()
+                                  ,cvv: cardCvv,expiryDate: cardExpiryDate,cardType: cardType.rawValue))
             error = vm.error
             
         } label: {
@@ -80,14 +81,14 @@ struct AddCardScreen: View {
     }
     
     
-    private func CardHolderNumber() -> some View {
+    private func CardHolderNumberField() -> some View {
         VStack(alignment: .leading){
             Text("Card Holder Number")
             HStack{
                 TextField("card number", text: $cardHolderNumber)
                     .withBorder()
                     .onChange(of: cardHolderNumber) { newValue in
-                        cardType = vm.creditCardValidationType.getCardType(cardNumber: cardHolderNumber)
+                        cardType = vm.creditCardValidationType.getCardType(cardNumber: cardHolderNumber.extractNumericCharacters())
                     }
                 Image(cardType.loadIcon())
             }

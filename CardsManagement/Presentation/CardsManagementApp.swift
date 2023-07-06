@@ -11,7 +11,7 @@ import SwiftUI
 struct CardsManagementApp: App {
     var body: some Scene {
         WindowGroup {
-            CardsScreen()
+            CardsScreen(vm: CardsViewModel(cardsListUseCase: CardsListUseCase(repo: CardsManagementRepo(localDataSrc: CardsManagementLocalDataSrc()))))
         }
     }
 }

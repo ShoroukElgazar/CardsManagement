@@ -15,16 +15,19 @@ class CardDTO : Object {
     @objc dynamic var cvv : String = ""
     @objc dynamic var expiryDate : String = ""
     @objc dynamic var amount : String = ""
+    @objc dynamic var cardType: String = ""
 }
 
 // MARK: - Mappings to Domain
 extension CardDTO {
     func toDomain() -> Card {
+        let id = id
         let cardHolder = cardHolder
         let cardNumber = cardNumber
         let cvv = cvv
         let expiryDate = expiryDate
+        let cardType = cardType
         
-        return Card(cardHolder: cardHolder,cardNumber: cardNumber,cvv: cvv,expiryDate: expiryDate,amount: amount)
+        return Card(id: id,cardHolder: cardHolder,cardNumber: cardNumber,cvv: cvv,expiryDate: expiryDate,amount: amount,cardType: cardType)
     }
 }

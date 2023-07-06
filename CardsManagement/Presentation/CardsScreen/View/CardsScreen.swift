@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct CardsScreen: View {
+    @State var vm: CardsViewModel
     var body: some View {
         NavigationView {
             ZStack
@@ -15,19 +16,16 @@ struct CardsScreen: View {
                 CardsView()
                 
             }.onAppear{
-                do{
-                   print(try Storage.sharedInstance().getAllCards() ) 
-                }catch{
-                    print(error)
+                print("cardslist:",vm.cards)
 
-                }
+               
             }
         }
     }
     
     private func CardsView() -> some View {
         VStack{
-            Text("No cards yet")
+            CardsList()
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
                         NavigationLink(destination: AddCardScreen(vm: AddCardViewModel(addCardUseCase: AddCardUseCase(repo: CardsManagementRepo(localDataSrc: CardsManagementLocalDataSrc()))))) {
@@ -39,11 +37,22 @@ struct CardsScreen: View {
                 }
            }
        }
-    
-}
+    private func CardsList() -> some View {
+      
+        List(vm.cards){ card in
+            HStack{
+                Text(card.cardHolder)
+                Spacer()
+                Button {
+                } label: {
+                    Text("Recharge")
+                }
 
-struct CardsScreen_Previews: PreviewProvider {
-    static var previews: some View {
-        CardsScreen()
+            }
+            
+        }
+        
     }
 }
+
+
