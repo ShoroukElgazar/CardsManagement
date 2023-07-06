@@ -21,6 +21,7 @@
 		042FD31C2A56210700D4AFF1 /* TextField+Border.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042FD31B2A56210700D4AFF1 /* TextField+Border.swift */; };
 		042FD31E2A56215100D4AFF1 /* String+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042FD31D2A56215100D4AFF1 /* String+Error.swift */; };
 		042FD3202A565DF000D4AFF1 /* CreditCardValidationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042FD31F2A565DF000D4AFF1 /* CreditCardValidationType.swift */; };
+		042FD3222A566C8E00D4AFF1 /* String+NumberOnly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042FD3212A566C8E00D4AFF1 /* String+NumberOnly.swift */; };
 		049B61B52A50863C00056D60 /* CardsManagementApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049B61B42A50863C00056D60 /* CardsManagementApp.swift */; };
 		049B61B72A50863C00056D60 /* CardsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049B61B62A50863C00056D60 /* CardsScreen.swift */; };
 		049B61B92A50863D00056D60 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 049B61B82A50863D00056D60 /* Assets.xcassets */; };
@@ -28,7 +29,7 @@
 		049B61C62A50863D00056D60 /* CardsManagementTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049B61C52A50863D00056D60 /* CardsManagementTests.swift */; };
 		049B61D02A50863D00056D60 /* CardsManagementUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049B61CF2A50863D00056D60 /* CardsManagementUITests.swift */; };
 		049B61D22A50863D00056D60 /* CardsManagementUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049B61D12A50863D00056D60 /* CardsManagementUITestsLaunchTests.swift */; };
-		049B61E62A51EAEE00056D60 /* CardsManagementViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049B61E52A51EAEE00056D60 /* CardsManagementViewModel.swift */; };
+		049B61E62A51EAEE00056D60 /* CardsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049B61E52A51EAEE00056D60 /* CardsViewModel.swift */; };
 		049B61F42A51F83400056D60 /* CardsManagementDataSrc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049B61F32A51F83400056D60 /* CardsManagementDataSrc.swift */; };
 		049B61F62A51F84100056D60 /* CardsManagementRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049B61F52A51F84100056D60 /* CardsManagementRepo.swift */; };
 		049B61FC2A523DF300056D60 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 049B61FB2A523DF300056D60 /* Realm */; };
@@ -70,6 +71,7 @@
 		042FD31B2A56210700D4AFF1 /* TextField+Border.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextField+Border.swift"; sourceTree = "<group>"; };
 		042FD31D2A56215100D4AFF1 /* String+Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Error.swift"; sourceTree = "<group>"; };
 		042FD31F2A565DF000D4AFF1 /* CreditCardValidationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCardValidationType.swift; sourceTree = "<group>"; };
+		042FD3212A566C8E00D4AFF1 /* String+NumberOnly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+NumberOnly.swift"; sourceTree = "<group>"; };
 		049B61B12A50863C00056D60 /* CardsManagement.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CardsManagement.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		049B61B42A50863C00056D60 /* CardsManagementApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsManagementApp.swift; sourceTree = "<group>"; };
 		049B61B62A50863C00056D60 /* CardsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsScreen.swift; sourceTree = "<group>"; };
@@ -80,7 +82,7 @@
 		049B61CB2A50863D00056D60 /* CardsManagementUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CardsManagementUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		049B61CF2A50863D00056D60 /* CardsManagementUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsManagementUITests.swift; sourceTree = "<group>"; };
 		049B61D12A50863D00056D60 /* CardsManagementUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsManagementUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		049B61E52A51EAEE00056D60 /* CardsManagementViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsManagementViewModel.swift; sourceTree = "<group>"; };
+		049B61E52A51EAEE00056D60 /* CardsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsViewModel.swift; sourceTree = "<group>"; };
 		049B61F32A51F83400056D60 /* CardsManagementDataSrc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsManagementDataSrc.swift; sourceTree = "<group>"; };
 		049B61F52A51F84100056D60 /* CardsManagementRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsManagementRepo.swift; sourceTree = "<group>"; };
 		049B61FF2A52401000056D60 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Storage.swift; path = ../../../../../../Documents/Storage.swift; sourceTree = "<group>"; };
@@ -257,6 +259,7 @@
 				042FD31B2A56210700D4AFF1 /* TextField+Border.swift */,
 				042FD31D2A56215100D4AFF1 /* String+Error.swift */,
 				042FD31F2A565DF000D4AFF1 /* CreditCardValidationType.swift */,
+				042FD3212A566C8E00D4AFF1 /* String+NumberOnly.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -272,7 +275,7 @@
 		049B61E42A51EAB800056D60 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				049B61E52A51EAEE00056D60 /* CardsManagementViewModel.swift */,
+				049B61E52A51EAEE00056D60 /* CardsViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -519,7 +522,7 @@
 				042FD31C2A56210700D4AFF1 /* TextField+Border.swift in Sources */,
 				049B61F62A51F84100056D60 /* CardsManagementRepo.swift in Sources */,
 				049B62022A5306B900056D60 /* CardDTO+Mapping.swift in Sources */,
-				049B61E62A51EAEE00056D60 /* CardsManagementViewModel.swift in Sources */,
+				049B61E62A51EAEE00056D60 /* CardsViewModel.swift in Sources */,
 				042FD3042A54E25800D4AFF1 /* CardsManagmentUseCase.swift in Sources */,
 				042FD3022A54E20900D4AFF1 /* DefaultCardsListUseCase.swift in Sources */,
 				042FD3162A55C63300D4AFF1 /* DefaultDeleteCardUseCase.swift in Sources */,
@@ -534,6 +537,7 @@
 				042FD31A2A55D6CC00D4AFF1 /* AppString.swift in Sources */,
 				049B62002A52401000056D60 /* Storage.swift in Sources */,
 				049B62042A530CE600056D60 /* Card.swift in Sources */,
+				042FD3222A566C8E00D4AFF1 /* String+NumberOnly.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
