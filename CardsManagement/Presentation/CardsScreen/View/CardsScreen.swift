@@ -71,12 +71,27 @@ struct CardsScreen: View {
                 .cardView()
                 .cornerRadius(5)
                 .shadow(radius: 3)
+                .swipeActions(allowsFullSwipe: false) {
+                  
+                    DeleteCard(id: card.id)
+                }
 
         }.listRowSeparator(.hidden)
             .background(Color.clear)
             .listStyle(.plain)
             .listRowBackground(Color.clear)
         
+    }
+    
+    private func DeleteCard(id: String) -> some View {
+        Group{
+            Button(role: .destructive) {
+                vm.deleteCard(id: id)
+                print("delete")
+            } label: {
+                Label("Delete", systemImage: "trash.fill")
+            }
+        }
     }
     
     private func handleCardRecharging(amount: String) {

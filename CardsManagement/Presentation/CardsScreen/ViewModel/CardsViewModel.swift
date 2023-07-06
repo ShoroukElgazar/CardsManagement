@@ -10,15 +10,18 @@ import Combine
 class CardsViewModel: ObservableObject {
     var cardsListUseCase : DefaultCardsListUseCase
     var rechargeCardUseCase : DefaultRechargeCardUseCase
+    var deleteCardUseCase : DefaultDeleteCardUseCase
+    
     @Published var cards: [Card] = []
     @Published var error : String = ""
     @Published var showValidationError  = false
-    
-    init(cardsListUseCase: DefaultCardsListUseCase,rechargeCardUseCase : DefaultRechargeCardUseCase) {
+    init(cardsListUseCase: DefaultCardsListUseCase, rechargeCardUseCase: DefaultRechargeCardUseCase, deleteCardUseCase: DefaultDeleteCardUseCase) {
         self.cardsListUseCase = cardsListUseCase
         self.rechargeCardUseCase = rechargeCardUseCase
+        self.deleteCardUseCase = deleteCardUseCase
         loadCards()
     }
+
     
     func loadCards() {
         do{
@@ -45,6 +48,14 @@ class CardsViewModel: ObservableObject {
             }
         } catch {
             self.error = error.localizedDescription
+        }
+    }
+    
+    func deleteCard(id: String) {
+        do{
+           try deleteCardUseCase.deleteCard(id: id)
+        } catch {
+            print(error)
         }
     }
 }
