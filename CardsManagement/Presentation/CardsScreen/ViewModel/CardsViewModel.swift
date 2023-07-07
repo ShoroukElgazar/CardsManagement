@@ -11,36 +11,41 @@ class CardsViewModel: ObservableObject {
     private var cardsListUseCase : DefaultCardsListUseCase
     private var rechargeCardUseCase : DefaultRechargeCardUseCase
     private var deleteCardUseCase : DefaultDeleteCardUseCase
+    var addCardUseCase : DefaultAddCardUseCase
+    var creditCardValidationType : CreditCardValidationType = CreditCardValidationType()
+
     
     @Published var cards: [Card] = []
     @Published var error : String = ""
     @Published var showValidationError  = false
+    @Published var isLoading  = false
     
-    init(cardsListUseCase: DefaultCardsListUseCase, rechargeCardUseCase: DefaultRechargeCardUseCase, deleteCardUseCase: DefaultDeleteCardUseCase) {
+    init(cardsListUseCase: DefaultCardsListUseCase, rechargeCardUseCase: DefaultRechargeCardUseCase, deleteCardUseCase: DefaultDeleteCardUseCase, addCardUseCase: DefaultAddCardUseCase) {
         self.cardsListUseCase = cardsListUseCase
         self.rechargeCardUseCase = rechargeCardUseCase
         self.deleteCardUseCase = deleteCardUseCase
-        loadCards()
+        self.addCardUseCase = addCardUseCase
     }
 
     
-    func loadCards() {
+    func loadCards() async {
         do{
-            cards = try cardsListUseCase.getAllCards() ?? []
+            cards = try await cardsListUseCase.getAllCards() ?? []
         } catch {
             print(error)
         }
+        isLoading = false
     }
     
-    func rechargeCard(id: String, newAmount: String) {
+    func rechargeCard(id: String, newAmount: String) async {
         do{
             let amount =  Double(newAmount)
             guard let amount = amount else {
                 return
             }
             if amount >= 10 && amount < 10000 {
-                try rechargeCardUseCase.rechargeCard(id: id, newAmount: String(amount))
-                loadCards()
+                try await rechargeCardUseCase.rechargeCard(id: id, newAmount: String(amount))
+                await loadCards()
                 showValidationError = false
             }
             else{
@@ -52,11 +57,17 @@ class CardsViewModel: ObservableObject {
         }
     }
     
-    func deleteCard(id: String) {
+    func deleteCard(id: String) async {
         do{
-           try deleteCardUseCase.deleteCard(id: id)
+            try await deleteCardUseCase.deleteCard(id: id)
+            await loadCards()
         } catch {
             print(error)
         }
+    }
+    
+    func addCard(card: Card) async throws {
+        try await addCardUseCase.saveCard(card: card)
+        await loadCards()
     }
 }

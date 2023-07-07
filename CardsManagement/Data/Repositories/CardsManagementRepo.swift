@@ -10,42 +10,65 @@ import Foundation
 class CardsManagementRepo: DefaultCardsManagementRepository {
     
     let localDataSrc: DefaultCardsManagementDataSrc
+    let remoteDataSrc: DefaultCardsManagementDataSrc
     
-    init(localDataSrc: DefaultCardsManagementDataSrc) {
+    init(localDataSrc: DefaultCardsManagementDataSrc, remoteDataSrc: DefaultCardsManagementDataSrc) {
         self.localDataSrc = localDataSrc
+        self.remoteDataSrc = remoteDataSrc
     }
     
-    func getAllCards() throws -> [Card]? {
-        var cardList : [Card] = []
-        let cards = try localDataSrc.getAllCards()
-        guard let items = cards else{
-            return []
+    func getAllCards() async throws -> [Card]? {
+        do {
+            let cards = try await remoteDataSrc.getAllCards()
+            if let items = cards {
+                return items.map { $0.toDomain() }
+            } else {
+                return nil
+            }
+        } catch {
+            let localCards = try await localDataSrc.getAllCards()
+            if let items = localCards {
+                return items.map { $0.toDomain() }
+            } else {
+                return nil
+            }
         }
-        let list = items
-        for card in list{
-            cardList.append(card.toDomain())
-        }
-        return cardList
     }
     
-    func saveCard(card: Card) throws {
-        if try isCardNumberAlreadyExists(cardNumber: card.cardNumber) {
+    func saveCard(card: Card) async throws {
+        if try await isCardNumberAlreadyExists(cardNumber: card.cardNumber) {
             throw("Card Number is already exist")
         }else{
-            try localDataSrc.saveCard(card: toDTO(card: card))
+            do {
+                try await remoteDataSrc.saveCard(card: toDTO(card: card))
+            } catch {
+                try await localDataSrc.saveCard(card: toDTO(card: card))
+            }
         }
     }
     
-    func updateCardAmount(id: String, newAmount: String) throws {
-        try localDataSrc.updateCardAmount(id: id, newAmount: newAmount)
+    func updateCardAmount(id: String, newAmount: String) async throws {
+        do {
+            try await remoteDataSrc.updateCardAmount(id: id, newAmount: newAmount)
+        } catch {
+            try await localDataSrc.updateCardAmount(id: id, newAmount: newAmount)
+        }
     }
     
-    func deleteCard(id: String) throws {
-        try localDataSrc.deleteCard(id: id)
+    func deleteCard(id: String) async throws {
+        do {
+            try await remoteDataSrc.deleteCard(id: id)
+        } catch {
+            try await localDataSrc.deleteCard(id: id)
+        }
     }
     
-    func deleteAllCards() throws {
-        try localDataSrc.deleteAllCards()
+    func deleteAllCards() async throws {
+        do {
+            try await remoteDataSrc.deleteAllCards()
+        } catch {
+            try await localDataSrc.deleteAllCards()
+        }
     }
     
     private func toDTO(card: Card) -> CardDTO {
@@ -59,14 +82,22 @@ class CardsManagementRepo: DefaultCardsManagementRepository {
         return cardDTO
     }
     
-    func isCardNumberAlreadyExists(cardNumber: String) throws -> Bool {
-            let existingCards = try localDataSrc.getAllCards()
+    private func isCardNumberAlreadyExists(cardNumber: String) async throws -> Bool {
+        do{
+            let existingCards = try await remoteDataSrc.getAllCards()
             
             if let cards = existingCards {
                 return cards.contains { $0.cardNumber == cardNumber }
             }
-            
+            return false
+        }catch{
+            let existingCards = try await localDataSrc.getAllCards()
+            if let cards = existingCards {
+                return cards.contains { $0.cardNumber == cardNumber }
+            }
             return false
         }
+    }
+            
     
 }

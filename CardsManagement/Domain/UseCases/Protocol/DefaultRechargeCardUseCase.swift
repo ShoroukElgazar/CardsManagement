@@ -8,5 +8,5 @@
 import Foundation
 
 protocol DefaultRechargeCardUseCase {
-    func rechargeCard(id: String, newAmount: String) throws 
+    func rechargeCard(id: String, newAmount: String) async throws 
 }

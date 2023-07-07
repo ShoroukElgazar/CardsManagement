@@ -8,7 +8,7 @@
 import Foundation
 import RealmSwift
 
-class CardDTO : Object, Identifiable {
+class CardDTO : Object, Identifiable, Codable {
     @Persisted(primaryKey: true) var id : String = UUID().uuidString
     @Persisted var cardHolder : String = ""
     @Persisted var cardNumber : String = ""

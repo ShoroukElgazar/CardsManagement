@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct CardsManagementApp: App {
+    @StateObject var networkMonitor = NetworkMonitor()
     var body: some Scene {
         WindowGroup {
             CardsScreen()
+                .environmentObject(networkMonitor)
         }
     }
 }

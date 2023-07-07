@@ -24,7 +24,7 @@ struct TextFieldAlert: ViewModifier {
             if isPresented {
                 VStack {
                     Text(title).font(.headline).padding()
-                    ZStack(alignment: .center) {
+                    ZStack(alignment: .leading) {
                         TextField(placeholder, text: $text)
                             .foregroundColor(.clear)
                             .keyboardType(.numberPad)

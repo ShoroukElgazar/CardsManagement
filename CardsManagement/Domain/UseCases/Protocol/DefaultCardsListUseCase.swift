@@ -8,7 +8,7 @@
 import Foundation
 
 protocol DefaultCardsListUseCase {
-    func getAllCards() throws -> [Card]?
+    func getAllCards() async throws -> [Card]?
 }
 
 

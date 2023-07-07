@@ -15,7 +15,7 @@ class AddCardUseCase: DefaultAddCardUseCase {
     }
   
         
-    func saveCard(card: Card) throws {
+    func saveCard(card: Card) async throws {
         guard isCardHolderNameValid(name: card.cardHolder) else {
             throw "invalidCardHolderName"
         }
@@ -32,7 +32,7 @@ class AddCardUseCase: DefaultAddCardUseCase {
             throw "invalidCardExpiryDate"
            }
            
-           try repo.saveCard(card: card)
+        try await repo.saveCard(card: card)
        }
     
     func isCardHolderNameValid(name: String) -> Bool {

@@ -8,37 +8,60 @@
 import SwiftUI
 import RealmSwift
 
-struct CardsScreen: View {
+struct CardsScreen: AppScreen {
+    @State var isLoading: Bool = false
     @Inject private var vm : CardsViewModel
-    @ObservedResults(CardDTO.self) var cards
     @State private var showAmountAlert = false
     @State private var showErrorAlert = false
     @State private var showDeleteConfirmationDialog = false
     @State private var amount = "0"
-    @State private var cardType : CardType =  .Unknown
+    @State private var cardType : CardType = .Unknown
     @State private var selectedCardID = ""
-    
-    var body: some View {
-        NavigationView {
-            ZStack
-            {
-                CardsView()
-            }
-        }
-    }
-    
-    private func CardsView() -> some View {
-        VStack{
-            CardsList()
+    @State private var cards: [Card] = []
+    @EnvironmentObject var networkMonitor: NetworkMonitor
+
+ 
+    var bodyContent: some View {
+        if networkMonitor.isNetworkAvailable {
+            NavigationView {
+                ZStack
+                {
+                    if !cards.isEmpty{
+                        CardsView()
+                    }else{
+                        Text("No Cards Exist")
+                    }
+                }
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
-                        NavigationLink(destination: AddCardScreen()) {
+                        NavigationLink(destination: AddCardScreen{ cards in
+                            self.cards = cards
+                        }) {
                             Image(systemName: "plus")
                                 .font(.system(size: 25))
                                 .fontWeight(.bold)
                         }
                     }
                 }
+            }
+            .onAppear{
+                DispatchQueue.main.asyncAfter(deadline:  .now() + 1) {
+                    Task{
+                        isLoading = true
+                        await vm.loadCards()
+                        cards = vm.cards
+                        isLoading = false
+                    }
+                }
+            }
+        } else {
+            Text("offline")
+        }
+    }
+    
+    private func CardsView() -> some View {
+        VStack{
+            CardsList()
         }
         .textFieldAlert(isPresented:  $showAmountAlert, title: "Recharge Your Card", text: $amount, placeholder: "", action: { amount in
             handleCardRecharging(amount: amount)
@@ -46,10 +69,15 @@ struct CardsScreen: View {
         .showAlert(showingAlert: $showErrorAlert, alertTitle: "", message: vm.error)
         .confirmationDialog("Confirm Delete", isPresented: $showDeleteConfirmationDialog) {
             Button("Delete") {
-                vm.deleteCard(id: selectedCardID)
+                Task{
+                    isLoading = true
+                    await vm.deleteCard(id: selectedCardID)
+                   cards = vm.cards
+                    isLoading = false
+                }
             }
         } message: {
-            Text("Are you sure?")
+            Text("Are you sure you want to delete this card?")
         }
     }
     
@@ -63,14 +91,14 @@ struct CardsScreen: View {
         
     }
     
-    private func Card(card: CardDTO) -> some View {
+    private func Card(card: Card) -> some View {
         HStack{
             VStack(alignment: .leading){
                 Text(card.cardHolder)
                 Text(card.cardNumber)
                 Text(card.expiryDate)
                 Text(card.amount)
-                Image(card.cardTypeValue.loadIcon())
+                Image(card.cardType.loadIcon())
             }
             Spacer()
             Button {
@@ -94,7 +122,7 @@ struct CardsScreen: View {
     
     private func DeleteCard(id: String) -> some View {
         Group{
-            Button(role: .destructive) {
+            Button {
                 showDeleteConfirmationDialog =  true
                 selectedCardID = id
             } label: {
@@ -104,15 +132,18 @@ struct CardsScreen: View {
     }
     
     private func handleCardRecharging(amount: String) {
-        vm.rechargeCard(id: selectedCardID, newAmount: amount)
+        Task{
+            isLoading = true
+            await vm.rechargeCard(id: selectedCardID, newAmount: amount)
+            cards = vm.cards
+            isLoading = false
+        }
         if vm.showValidationError {
             showErrorAlert = true
         }else{
             showErrorAlert = false
         }
     }
+
 }
-
-
-
 

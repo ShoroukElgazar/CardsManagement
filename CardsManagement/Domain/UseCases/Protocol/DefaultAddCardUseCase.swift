@@ -8,5 +8,5 @@
 import Foundation
 
 protocol DefaultAddCardUseCase {
-    func saveCard(card: Card) throws
+    func saveCard(card: Card) async throws
 }

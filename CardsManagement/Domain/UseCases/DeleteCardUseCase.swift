@@ -15,12 +15,12 @@ class DeleteCardUseCase: DefaultDeleteCardUseCase {
         self.repo = repo
     }
     
-    func deleteCard(id: String) throws {
-        try repo.deleteCard(id: id)
+    func deleteCard(id: String) async throws {
+        try await repo.deleteCard(id: id)
     }
     
-    func deleteAllCards() throws {
-        try repo.deleteAllCards()
+    func deleteAllCards() async throws {
+        try await repo.deleteAllCards()
     }
 
 }

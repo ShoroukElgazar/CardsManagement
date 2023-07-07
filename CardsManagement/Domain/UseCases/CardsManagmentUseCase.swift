@@ -15,8 +15,8 @@ class CardsListUseCase: DefaultCardsListUseCase {
         self.repo = repo
     }
     
-    func getAllCards() throws -> [Card]? {
-        try repo.getAllCards()
+    func getAllCards() async throws -> [Card]? {
+        try await repo.getAllCards()
     }
  
 }

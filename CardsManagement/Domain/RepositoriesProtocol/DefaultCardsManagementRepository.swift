@@ -8,9 +8,9 @@
 import Foundation
 
 protocol DefaultCardsManagementRepository {
-    func getAllCards() throws -> [Card]?
-    func updateCardAmount(id: String, newAmount: String) throws 
-    func saveCard(card: Card) throws
-    func deleteCard(id: String) throws
-    func deleteAllCards() throws
+    func getAllCards() async throws -> [Card]?
+    func updateCardAmount(id: String, newAmount: String) async throws
+    func saveCard(card: Card) async throws
+    func deleteCard(id: String) async throws
+    func deleteAllCards() async throws
 }

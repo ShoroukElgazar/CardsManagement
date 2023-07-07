@@ -14,8 +14,8 @@ class RechargeCardUseCase: DefaultRechargeCardUseCase {
         self.repo = repo
     }
     
-    func rechargeCard(id: String,newAmount: String) throws {
-      try  repo.updateCardAmount(id: id, newAmount: newAmount)
+    func rechargeCard(id: String,newAmount: String) async throws {
+      try await repo.updateCardAmount(id: id, newAmount: newAmount)
     }
     
 }

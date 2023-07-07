@@ -8,6 +8,6 @@
 import Foundation
 
 protocol DefaultDeleteCardUseCase {
-    func deleteCard(id: String) throws
-    func deleteAllCards() throws
+    func deleteCard(id: String) async throws
+    func deleteAllCards() async throws
 }

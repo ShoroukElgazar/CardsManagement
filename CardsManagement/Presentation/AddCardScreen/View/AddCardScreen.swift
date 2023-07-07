@@ -8,8 +8,9 @@
 import SwiftUI
 import Combine
 
-struct AddCardScreen: View {
-    @Inject private var vm : AddCardViewModel
+struct AddCardScreen: AppScreen {
+    @Inject private var vm : CardsViewModel
+    @State var isLoading: Bool = false
     @State private var card: Card = Card()
     @State private var cardHolderName = ""
     @State private var cardHolderNumber = ""
@@ -18,27 +19,36 @@ struct AddCardScreen: View {
     @State private var error = ""
     @State private var cardType : CardType =  .Unknown
     @Environment(\.presentationMode) var presentationMode
+    var onDismiss: ([Card]) -> Void
+    @EnvironmentObject var networkMonitor: NetworkMonitor
 
     
-    var body: some View {
-        VStack(spacing: 20){
-            
-            EntryField(title: "Card Holder Name", placeHoler: "Your Name", text: $cardHolderName)
-            
-            CardHolderNumberField()
-
-            EntryField(title: "CVV", placeHoler: "cvv", text: $cardCvv)
-                .keyboardType(.numberPad)
-            
-            ExpiryDateField()
-            
-            Text(error)
-                .foregroundColor(.red)
-            
-            AddCardButton()
-            
-            Spacer()
-        }.padding()
+    var bodyContent: some View {
+        if networkMonitor.isNetworkAvailable {
+            VStack(spacing: 20){
+                
+                EntryField(title: "Card Holder Name", placeHoler: "Your Name", text: $cardHolderName)
+                
+                CardHolderNumberField()
+                
+                EntryField(title: "CVV", placeHoler: "cvv", text: $cardCvv)
+                    .keyboardType(.numberPad)
+                
+                ExpiryDateField()
+                
+                Text(error)
+                    .foregroundColor(.red)
+                
+                AddCardButton()
+                
+                Spacer()
+            }.padding()
+                .onDisappear{
+                    onDismiss(vm.cards)
+                }
+        } else {
+            Text("offline")
+        }
     }
     
     private func EntryField(title: String,placeHoler: String,text: Binding<String>) -> some View {
@@ -68,12 +78,18 @@ struct AddCardScreen: View {
     
     private func AddCardButton() -> some View {
         Button {
-            do{
-                try vm.addCard(card: Card(cardHolder: cardHolderName,cardNumber: cardHolderNumber.extractNumericCharacters()
-                                      ,cvv: cardCvv,expiryDate: cardExpiryDate,cardType: cardType))
-                presentationMode.wrappedValue.dismiss()
-            } catch {
-                self.error = error.localizedDescription
+            Task{
+                do{
+                    isLoading = true
+                    try await vm.addCard(card: Card(cardHolder: cardHolderName,cardNumber: cardHolderNumber.extractNumericCharacters()
+                                              ,cvv: cardCvv,expiryDate: cardExpiryDate,cardType: cardType))
+                    DispatchQueue.main.async {
+                        isLoading = false
+                        presentationMode.wrappedValue.dismiss()
+                    }
+                } catch {
+                    self.error = error.localizedDescription
+                }
             }
         } label: {
             Text("Add Card")
@@ -102,7 +118,6 @@ struct AddCardScreen: View {
                    
                     NavigationLink {
                         CardReaderView { card in
-                            print("card is",card)
                             cardHolderName = card?.cardHolder ?? ""
                             cardHolderNumber = card?.cardNumber ?? ""
                             cardExpiryDate = card?.expiryDate ?? ""

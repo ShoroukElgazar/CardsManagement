@@ -47,6 +47,15 @@
 		04BF16732A57A0FB00F20DB8 /* Resolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BF16722A57A0FB00F20DB8 /* Resolver.swift */; };
 		04BF16752A57A19000F20DB8 /* CardsDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BF16742A57A19000F20DB8 /* CardsDIContainer.swift */; };
 		04BF16792A57A4F900F20DB8 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 04BF16782A57A4F900F20DB8 /* Swinject */; };
+		04BF167E2A5863E600F20DB8 /* MoyaProvider+Create.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BF167B2A5863E600F20DB8 /* MoyaProvider+Create.swift */; };
+		04BF167F2A5863E600F20DB8 /* MoyaTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BF167C2A5863E600F20DB8 /* MoyaTargetType.swift */; };
+		04BF16802A5863E600F20DB8 /* MoyaProvider+AsyncAwait.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BF167D2A5863E600F20DB8 /* MoyaProvider+AsyncAwait.swift */; };
+		04BF16832A58641A00F20DB8 /* CombineMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 04BF16822A58641A00F20DB8 /* CombineMoya */; };
+		04BF16852A58641A00F20DB8 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 04BF16842A58641A00F20DB8 /* Moya */; };
+		04BF16872A58641A00F20DB8 /* ReactiveMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 04BF16862A58641A00F20DB8 /* ReactiveMoya */; };
+		04BF16892A58641A00F20DB8 /* RxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 04BF16882A58641A00F20DB8 /* RxMoya */; };
+		04BF168B2A58647A00F20DB8 /* CardsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BF168A2A58647A00F20DB8 /* CardsAPI.swift */; };
+		04BF168D2A588A1100F20DB8 /* AppScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BF168C2A588A1100F20DB8 /* AppScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,6 +117,11 @@
 		04BF166B2A57959300F20DB8 /* ImageTextRecognizable+Handling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ImageTextRecognizable+Handling.swift"; sourceTree = "<group>"; };
 		04BF16722A57A0FB00F20DB8 /* Resolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resolver.swift; sourceTree = "<group>"; };
 		04BF16742A57A19000F20DB8 /* CardsDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsDIContainer.swift; sourceTree = "<group>"; };
+		04BF167B2A5863E600F20DB8 /* MoyaProvider+Create.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MoyaProvider+Create.swift"; sourceTree = "<group>"; };
+		04BF167C2A5863E600F20DB8 /* MoyaTargetType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoyaTargetType.swift; sourceTree = "<group>"; };
+		04BF167D2A5863E600F20DB8 /* MoyaProvider+AsyncAwait.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MoyaProvider+AsyncAwait.swift"; sourceTree = "<group>"; };
+		04BF168A2A58647A00F20DB8 /* CardsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsAPI.swift; sourceTree = "<group>"; };
+		04BF168C2A588A1100F20DB8 /* AppScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,7 +131,11 @@
 			files = (
 				049B61FE2A523DF300056D60 /* RealmSwift in Frameworks */,
 				049B61FC2A523DF300056D60 /* Realm in Frameworks */,
+				04BF16832A58641A00F20DB8 /* CombineMoya in Frameworks */,
+				04BF16852A58641A00F20DB8 /* Moya in Frameworks */,
+				04BF16892A58641A00F20DB8 /* RxMoya in Frameworks */,
 				04BF16792A57A4F900F20DB8 /* Swinject in Frameworks */,
+				04BF16872A58641A00F20DB8 /* ReactiveMoya in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -239,9 +257,8 @@
 				049B61EB2A51EF1900056D60 /* Repositories */,
 				049B61EC2A51EF4F00056D60 /* DataSrc */,
 				049B61EE2A51EF9600056D60 /* DataMapping */,
-				049B61E12A51DCD600056D60 /* Core */,
 				049B61EF2A51EF9B00056D60 /* API */,
-				049B61ED2A51EF7900056D60 /* Network */,
+				049B61E12A51DCD600056D60 /* Core */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -269,6 +286,7 @@
 		049B61E12A51DCD600056D60 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				04BF167A2A5863E600F20DB8 /* Network */,
 				049B61F02A51F77E00056D60 /* Storage */,
 			);
 			path = Core;
@@ -362,6 +380,7 @@
 		049B61ED2A51EF7900056D60 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				04BF168A2A58647A00F20DB8 /* CardsAPI.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -377,6 +396,7 @@
 		049B61EF2A51EF9B00056D60 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				049B61ED2A51EF7900056D60 /* Network */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -396,6 +416,7 @@
 				042FD3272A56823900D4AFF1 /* CardView.swift */,
 				042FD32D2A5759A900D4AFF1 /* CardReaderView.swift */,
 				04BF166B2A57959300F20DB8 /* ImageTextRecognizable+Handling.swift */,
+				04BF168C2A588A1100F20DB8 /* AppScreen.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -415,6 +436,16 @@
 				04BF16722A57A0FB00F20DB8 /* Resolver.swift */,
 			);
 			path = DIContainer;
+			sourceTree = "<group>";
+		};
+		04BF167A2A5863E600F20DB8 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				04BF167B2A5863E600F20DB8 /* MoyaProvider+Create.swift */,
+				04BF167C2A5863E600F20DB8 /* MoyaTargetType.swift */,
+				04BF167D2A5863E600F20DB8 /* MoyaProvider+AsyncAwait.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -437,6 +468,10 @@
 				049B61FB2A523DF300056D60 /* Realm */,
 				049B61FD2A523DF300056D60 /* RealmSwift */,
 				04BF16782A57A4F900F20DB8 /* Swinject */,
+				04BF16822A58641A00F20DB8 /* CombineMoya */,
+				04BF16842A58641A00F20DB8 /* Moya */,
+				04BF16862A58641A00F20DB8 /* ReactiveMoya */,
+				04BF16882A58641A00F20DB8 /* RxMoya */,
 			);
 			productName = CardsManagement;
 			productReference = 049B61B12A50863C00056D60 /* CardsManagement.app */;
@@ -513,6 +548,7 @@
 			packageReferences = (
 				049B61FA2A523DF300056D60 /* XCRemoteSwiftPackageReference "realm-swift" */,
 				04BF16772A57A4F900F20DB8 /* XCRemoteSwiftPackageReference "Swinject" */,
+				04BF16812A58641A00F20DB8 /* XCRemoteSwiftPackageReference "Moya" */,
 			);
 			productRefGroup = 049B61B22A50863C00056D60 /* Products */;
 			projectDirPath = "";
@@ -557,8 +593,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				049B61B72A50863C00056D60 /* CardsScreen.swift in Sources */,
+				04BF168D2A588A1100F20DB8 /* AppScreen.swift in Sources */,
 				042FD31E2A56215100D4AFF1 /* String+Error.swift in Sources */,
+				04BF167F2A5863E600F20DB8 /* MoyaTargetType.swift in Sources */,
 				04BF16752A57A19000F20DB8 /* CardsDIContainer.swift in Sources */,
+				04BF168B2A58647A00F20DB8 /* CardsAPI.swift in Sources */,
+				04BF167E2A5863E600F20DB8 /* MoyaProvider+Create.swift in Sources */,
 				042FD32E2A5759A900D4AFF1 /* CardReaderView.swift in Sources */,
 				042FD30A2A55AECE00D4AFF1 /* AddCardScreen.swift in Sources */,
 				042FD3182A55D69D00D4AFF1 /* AppError.swift in Sources */,
@@ -570,6 +610,7 @@
 				042FD3042A54E25800D4AFF1 /* CardsManagmentUseCase.swift in Sources */,
 				042FD3022A54E20900D4AFF1 /* DefaultCardsListUseCase.swift in Sources */,
 				042FD3162A55C63300D4AFF1 /* DefaultDeleteCardUseCase.swift in Sources */,
+				04BF16802A5863E600F20DB8 /* MoyaProvider+AsyncAwait.swift in Sources */,
 				042FD3122A55C5B200D4AFF1 /* DeleteCardUseCase.swift in Sources */,
 				049B61B52A50863C00056D60 /* CardsManagementApp.swift in Sources */,
 				049B61F42A51F83400056D60 /* CardsManagementDataSrc.swift in Sources */,
@@ -942,6 +983,14 @@
 				minimumVersion = 2.0.0;
 			};
 		};
+		04BF16812A58641A00F20DB8 /* XCRemoteSwiftPackageReference "Moya" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Moya/Moya.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 15.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -959,6 +1008,26 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 04BF16772A57A4F900F20DB8 /* XCRemoteSwiftPackageReference "Swinject" */;
 			productName = Swinject;
+		};
+		04BF16822A58641A00F20DB8 /* CombineMoya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 04BF16812A58641A00F20DB8 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = CombineMoya;
+		};
+		04BF16842A58641A00F20DB8 /* Moya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 04BF16812A58641A00F20DB8 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = Moya;
+		};
+		04BF16862A58641A00F20DB8 /* ReactiveMoya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 04BF16812A58641A00F20DB8 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = ReactiveMoya;
+		};
+		04BF16882A58641A00F20DB8 /* RxMoya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 04BF16812A58641A00F20DB8 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = RxMoya;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
