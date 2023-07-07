@@ -10,13 +10,13 @@ import Combine
 
 struct AddCardScreen: View {
     @Inject private var vm : AddCardViewModel
-    @State var card: Card = Card()
-    @State var cardHolderName = ""
-    @State var cardHolderNumber = ""
-    @State var cardCvv = ""
-    @State var cardExpiryDate = ""
-    @State var error = ""
-    @State var cardType : CardType =  .Unknown
+    @State private var card: Card = Card()
+    @State private var cardHolderName = ""
+    @State private var cardHolderNumber = ""
+    @State private var cardCvv = ""
+    @State private var cardExpiryDate = ""
+    @State private var error = ""
+    @State private var cardType : CardType =  .Unknown
     @Environment(\.presentationMode) var presentationMode
 
     

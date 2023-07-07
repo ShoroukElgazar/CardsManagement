@@ -15,7 +15,7 @@ struct CardsScreen: View {
     @State private var showErrorAlert = false
     @State private var showDeleteConfirmationDialog = false
     @State private var amount = "0"
-    @State var cardType : CardType =  .Unknown
+    @State private var cardType : CardType =  .Unknown
     @State private var selectedCardID = ""
     
     var body: some View {
