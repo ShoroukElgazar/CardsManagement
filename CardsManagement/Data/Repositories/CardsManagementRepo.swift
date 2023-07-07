@@ -19,17 +19,21 @@ class CardsManagementRepo: DefaultCardsManagementRepository {
         var cardList : [Card] = []
         let cards = try localDataSrc.getAllCards()
         guard let items = cards else{
-                return []
-            }
-            let list = items
-            for card in list{
-                cardList.append(card.toDomain())
-            }
-            return cardList
+            return []
+        }
+        let list = items
+        for card in list{
+            cardList.append(card.toDomain())
+        }
+        return cardList
     }
     
     func saveCard(card: Card) throws {
-        try localDataSrc.saveCard(card: toDTO(card: card))
+        if try isCardNumberAlreadyExists(cardNumber: card.cardNumber) {
+            throw("Card Number is already exist")
+        }else{
+            try localDataSrc.saveCard(card: toDTO(card: card))
+        }
     }
     
     func updateCardAmount(id: String, newAmount: String) throws {
@@ -44,7 +48,7 @@ class CardsManagementRepo: DefaultCardsManagementRepository {
         try localDataSrc.deleteAllCards()
     }
     
-   private func toDTO(card: Card) -> CardDTO {
+    private func toDTO(card: Card) -> CardDTO {
         let cardDTO = CardDTO()
         cardDTO.cardHolder = card.cardHolder
         cardDTO.cardNumber = card.cardNumber
@@ -52,7 +56,17 @@ class CardsManagementRepo: DefaultCardsManagementRepository {
         cardDTO.expiryDate = card.expiryDate
         cardDTO.amount = card.amount
         cardDTO.cardType = card.cardType.rawValue
-           return cardDTO
-       }
+        return cardDTO
+    }
+    
+    func isCardNumberAlreadyExists(cardNumber: String) throws -> Bool {
+            let existingCards = try localDataSrc.getAllCards()
+            
+            if let cards = existingCards {
+                return cards.contains { $0.cardNumber == cardNumber }
+            }
+            
+            return false
+        }
     
 }
