@@ -9,8 +9,7 @@ import SwiftUI
 import Combine
 
 struct AddCardScreen: View {
-    
-    @State var vm: AddCardViewModel
+    @Inject private var vm : AddCardViewModel
     @State var card: Card = Card()
     @State var cardHolderName = ""
     @State var cardHolderNumber = ""

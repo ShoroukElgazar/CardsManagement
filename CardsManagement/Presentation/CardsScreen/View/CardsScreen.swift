@@ -9,7 +9,7 @@ import SwiftUI
 import RealmSwift
 
 struct CardsScreen: View {
-    var vm: CardsViewModel
+    @Inject private var vm : CardsViewModel
     @ObservedResults(CardDTO.self) var cards
     @State private var showAmountAlert = false
     @State private var showErrorAlert = false
@@ -32,7 +32,7 @@ struct CardsScreen: View {
             CardsList()
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
-                        NavigationLink(destination: AddCardScreen(vm: AddCardViewModel(addCardUseCase: AddCardUseCase(repo: CardsManagementRepo(localDataSrc: CardsManagementLocalDataSrc()))))) {
+                        NavigationLink(destination: AddCardScreen()) {
                             Image(systemName: "plus")
                                 .font(.system(size: 25))
                                 .fontWeight(.bold)

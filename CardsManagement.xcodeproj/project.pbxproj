@@ -44,6 +44,9 @@
 		049B62022A5306B900056D60 /* CardDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049B62012A5306B900056D60 /* CardDTO+Mapping.swift */; };
 		049B62042A530CE600056D60 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049B62032A530CE600056D60 /* Card.swift */; };
 		04BF166C2A57959300F20DB8 /* ImageTextRecognizable+Handling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BF166B2A57959300F20DB8 /* ImageTextRecognizable+Handling.swift */; };
+		04BF16732A57A0FB00F20DB8 /* Resolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BF16722A57A0FB00F20DB8 /* Resolver.swift */; };
+		04BF16752A57A19000F20DB8 /* CardsDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BF16742A57A19000F20DB8 /* CardsDIContainer.swift */; };
+		04BF16792A57A4F900F20DB8 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 04BF16782A57A4F900F20DB8 /* Swinject */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +106,8 @@
 		049B62032A530CE600056D60 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		04BF166A2A57635E00F20DB8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		04BF166B2A57959300F20DB8 /* ImageTextRecognizable+Handling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ImageTextRecognizable+Handling.swift"; sourceTree = "<group>"; };
+		04BF16722A57A0FB00F20DB8 /* Resolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resolver.swift; sourceTree = "<group>"; };
+		04BF16742A57A19000F20DB8 /* CardsDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsDIContainer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +117,7 @@
 			files = (
 				049B61FE2A523DF300056D60 /* RealmSwift in Frameworks */,
 				049B61FC2A523DF300056D60 /* Realm in Frameworks */,
+				04BF16792A57A4F900F20DB8 /* Swinject in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -397,8 +403,18 @@
 		049B61F22A51F7D200056D60 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				04BF16762A57A19C00F20DB8 /* DIContainer */,
 			);
 			path = Application;
+			sourceTree = "<group>";
+		};
+		04BF16762A57A19C00F20DB8 /* DIContainer */ = {
+			isa = PBXGroup;
+			children = (
+				04BF16742A57A19000F20DB8 /* CardsDIContainer.swift */,
+				04BF16722A57A0FB00F20DB8 /* Resolver.swift */,
+			);
+			path = DIContainer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -420,6 +436,7 @@
 			packageProductDependencies = (
 				049B61FB2A523DF300056D60 /* Realm */,
 				049B61FD2A523DF300056D60 /* RealmSwift */,
+				04BF16782A57A4F900F20DB8 /* Swinject */,
 			);
 			productName = CardsManagement;
 			productReference = 049B61B12A50863C00056D60 /* CardsManagement.app */;
@@ -495,6 +512,7 @@
 			mainGroup = 049B61A82A50863C00056D60;
 			packageReferences = (
 				049B61FA2A523DF300056D60 /* XCRemoteSwiftPackageReference "realm-swift" */,
+				04BF16772A57A4F900F20DB8 /* XCRemoteSwiftPackageReference "Swinject" */,
 			);
 			productRefGroup = 049B61B22A50863C00056D60 /* Products */;
 			projectDirPath = "";
@@ -540,6 +558,7 @@
 			files = (
 				049B61B72A50863C00056D60 /* CardsScreen.swift in Sources */,
 				042FD31E2A56215100D4AFF1 /* String+Error.swift in Sources */,
+				04BF16752A57A19000F20DB8 /* CardsDIContainer.swift in Sources */,
 				042FD32E2A5759A900D4AFF1 /* CardReaderView.swift in Sources */,
 				042FD30A2A55AECE00D4AFF1 /* AddCardScreen.swift in Sources */,
 				042FD3182A55D69D00D4AFF1 /* AppError.swift in Sources */,
@@ -563,6 +582,7 @@
 				042FD3282A56823900D4AFF1 /* CardView.swift in Sources */,
 				042FD30C2A55B07900D4AFF1 /* AddCardViewModel.swift in Sources */,
 				04BF166C2A57959300F20DB8 /* ImageTextRecognizable+Handling.swift in Sources */,
+				04BF16732A57A0FB00F20DB8 /* Resolver.swift in Sources */,
 				042FD31A2A55D6CC00D4AFF1 /* AppString.swift in Sources */,
 				049B62002A52401000056D60 /* Storage.swift in Sources */,
 				049B62042A530CE600056D60 /* Card.swift in Sources */,
@@ -914,6 +934,14 @@
 				minimumVersion = 10.41.0;
 			};
 		};
+		04BF16772A57A4F900F20DB8 /* XCRemoteSwiftPackageReference "Swinject" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Swinject/Swinject.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -926,6 +954,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 049B61FA2A523DF300056D60 /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;
+		};
+		04BF16782A57A4F900F20DB8 /* Swinject */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 04BF16772A57A4F900F20DB8 /* XCRemoteSwiftPackageReference "Swinject" */;
+			productName = Swinject;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
