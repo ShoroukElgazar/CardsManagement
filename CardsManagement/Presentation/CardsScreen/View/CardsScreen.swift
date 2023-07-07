@@ -50,7 +50,8 @@ struct CardsScreen: View {
             }
         } message: {
             Text("Are you sure?")
-        }    }
+        }
+    }
     
     private func CardsList() -> some View {
         List(cards){ card in

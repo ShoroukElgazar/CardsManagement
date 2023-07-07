@@ -29,6 +29,7 @@ struct AddCardScreen: View {
             CardHolderNumberField()
 
             EntryField(title: "CVV", placeHoler: "cvv", text: $cardCvv)
+                .keyboardType(.numberPad)
             
             ExpiryDateField()
             
@@ -53,6 +54,7 @@ struct AddCardScreen: View {
             Text("Expiry Date")
             TextField("MM/YY", text: $cardExpiryDate)
                 .withBorder()
+                .keyboardType(.numberPad)
                 .onChange(of: cardExpiryDate) { newValue in
                     if newValue.count > 2 {
                         let monthIndex = newValue.index(newValue.startIndex, offsetBy: 2)
@@ -92,10 +94,26 @@ struct AddCardScreen: View {
             HStack{
                 TextField("card number", text: $cardHolderNumber)
                     .withBorder()
+                    .keyboardType(.numberPad)
                     .onChange(of: cardHolderNumber) { newValue in
                         cardType = vm.creditCardValidationType.getCardType(cardNumber: cardHolderNumber.extractNumericCharacters())
                     }
-                Image(cardType.loadIcon())
+                VStack{
+                    Image(cardType.loadIcon())
+                   
+                    NavigationLink {
+                        CardReaderView { card in
+                            print("card is",card)
+                            cardHolderName = card?.cardHolder ?? ""
+                            cardHolderNumber = card?.cardNumber ?? ""
+                            cardExpiryDate = card?.expiryDate ?? ""
+                        }
+                    } label: {
+                        Text("scan")
+                    }
+
+                   
+                }
             }
         }
     }

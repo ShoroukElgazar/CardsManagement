@@ -27,6 +27,7 @@
 		042FD3282A56823900D4AFF1 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042FD3272A56823900D4AFF1 /* CardView.swift */; };
 		042FD32A2A57024000D4AFF1 /* View+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042FD3292A57024000D4AFF1 /* View+Alert.swift */; };
 		042FD32C2A57026900D4AFF1 /* TextFieldAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042FD32B2A57026900D4AFF1 /* TextFieldAlert.swift */; };
+		042FD32E2A5759A900D4AFF1 /* CardReaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042FD32D2A5759A900D4AFF1 /* CardReaderView.swift */; };
 		049B61B52A50863C00056D60 /* CardsManagementApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049B61B42A50863C00056D60 /* CardsManagementApp.swift */; };
 		049B61B72A50863C00056D60 /* CardsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049B61B62A50863C00056D60 /* CardsScreen.swift */; };
 		049B61B92A50863D00056D60 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 049B61B82A50863D00056D60 /* Assets.xcassets */; };
@@ -42,6 +43,7 @@
 		049B62002A52401000056D60 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049B61FF2A52401000056D60 /* Storage.swift */; };
 		049B62022A5306B900056D60 /* CardDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049B62012A5306B900056D60 /* CardDTO+Mapping.swift */; };
 		049B62042A530CE600056D60 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049B62032A530CE600056D60 /* Card.swift */; };
+		04BF166C2A57959300F20DB8 /* ImageTextRecognizable+Handling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BF166B2A57959300F20DB8 /* ImageTextRecognizable+Handling.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +84,7 @@
 		042FD3272A56823900D4AFF1 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		042FD3292A57024000D4AFF1 /* View+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Alert.swift"; sourceTree = "<group>"; };
 		042FD32B2A57026900D4AFF1 /* TextFieldAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldAlert.swift; sourceTree = "<group>"; };
+		042FD32D2A5759A900D4AFF1 /* CardReaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardReaderView.swift; sourceTree = "<group>"; };
 		049B61B12A50863C00056D60 /* CardsManagement.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CardsManagement.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		049B61B42A50863C00056D60 /* CardsManagementApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsManagementApp.swift; sourceTree = "<group>"; };
 		049B61B62A50863C00056D60 /* CardsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsScreen.swift; sourceTree = "<group>"; };
@@ -98,6 +101,8 @@
 		049B61FF2A52401000056D60 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Storage.swift; path = ../../../../../../Documents/Storage.swift; sourceTree = "<group>"; };
 		049B62012A5306B900056D60 /* CardDTO+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CardDTO+Mapping.swift"; sourceTree = "<group>"; };
 		049B62032A530CE600056D60 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		04BF166A2A57635E00F20DB8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		04BF166B2A57959300F20DB8 /* ImageTextRecognizable+Handling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ImageTextRecognizable+Handling.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +189,7 @@
 		049B61B32A50863C00056D60 /* CardsManagement */ = {
 			isa = PBXGroup;
 			children = (
+				04BF166A2A57635E00F20DB8 /* Info.plist */,
 				049B61F22A51F7D200056D60 /* Application */,
 				049B61E02A51DCCB00056D60 /* Presentation */,
 				049B61DF2A51DCB100056D60 /* Domain */,
@@ -382,6 +388,8 @@
 			children = (
 				042FD3172A55D69D00D4AFF1 /* AppError.swift */,
 				042FD3272A56823900D4AFF1 /* CardView.swift */,
+				042FD32D2A5759A900D4AFF1 /* CardReaderView.swift */,
+				04BF166B2A57959300F20DB8 /* ImageTextRecognizable+Handling.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -532,6 +540,7 @@
 			files = (
 				049B61B72A50863C00056D60 /* CardsScreen.swift in Sources */,
 				042FD31E2A56215100D4AFF1 /* String+Error.swift in Sources */,
+				042FD32E2A5759A900D4AFF1 /* CardReaderView.swift in Sources */,
 				042FD30A2A55AECE00D4AFF1 /* AddCardScreen.swift in Sources */,
 				042FD3182A55D69D00D4AFF1 /* AppError.swift in Sources */,
 				042FD31C2A56210700D4AFF1 /* TextField+Border.swift in Sources */,
@@ -553,6 +562,7 @@
 				042FD3002A54D0F100D4AFF1 /* DefaultCardsManagementRepository.swift in Sources */,
 				042FD3282A56823900D4AFF1 /* CardView.swift in Sources */,
 				042FD30C2A55B07900D4AFF1 /* AddCardViewModel.swift in Sources */,
+				04BF166C2A57959300F20DB8 /* ImageTextRecognizable+Handling.swift in Sources */,
 				042FD31A2A55D6CC00D4AFF1 /* AppString.swift in Sources */,
 				049B62002A52401000056D60 /* Storage.swift in Sources */,
 				049B62042A530CE600056D60 /* Card.swift in Sources */,
@@ -719,11 +729,14 @@
 				DEVELOPMENT_TEAM = TQM9DBNZR5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CardsManagement/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "$(PRODUCT_NAME)";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -731,9 +744,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = app.CardsManagement;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -748,11 +764,14 @@
 				DEVELOPMENT_TEAM = TQM9DBNZR5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CardsManagement/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "$(PRODUCT_NAME)";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -760,9 +779,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = app.CardsManagement;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

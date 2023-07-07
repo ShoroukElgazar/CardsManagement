@@ -11,19 +11,13 @@ import Foundation
 class AddCardViewModel: ObservableObject {
     var addCardUseCase : DefaultAddCardUseCase
     var creditCardValidationType : CreditCardValidationType = CreditCardValidationType()
-    @Published var error : String = ""
     
     init(addCardUseCase: DefaultAddCardUseCase) {
         self.addCardUseCase = addCardUseCase
     }
    
     func addCard(card: Card) throws {
-//        do{
-            try addCardUseCase.saveCard(card: card)
-//        } catch {
-//
-//            self.error = error.localizedDescription
-//        }
+      try addCardUseCase.saveCard(card: card)
     }
     
  
