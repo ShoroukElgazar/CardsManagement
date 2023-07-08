@@ -13,4 +13,9 @@ extension Text{
             .font(.system(size: 18, weight: .semibold, design: .default))
             .foregroundColor(Color(AppString.Colors.appRed))            
     }
+    func cardtitle() -> some View {
+        self
+            .font(.system(size: 18, weight: .regular, design: .default))
+            .foregroundColor(Color(AppString.Colors.appColor))
+    }
 }

@@ -52,6 +52,7 @@ struct CreditCardView: View{
                             Text(AppString.CreditCardView.rechargeButtonTitle)
                                 .font(.system(size: 18, weight: .bold, design: .default))
                                 .foregroundColor(Color(AppString.Colors.appColor))
+                                .withBorder()
                         }
                 }
               

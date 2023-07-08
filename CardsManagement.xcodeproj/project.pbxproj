@@ -60,6 +60,7 @@
 		04BF16952A58E34100F20DB8 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04BF16942A58E34100F20DB8 /* Colors.xcassets */; };
 		04BF169C2A58F0FC00F20DB8 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BF169B2A58F0FC00F20DB8 /* Storage.swift */; };
 		04BF169E2A58F4EB00F20DB8 /* View+Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BF169D2A58F4EB00F20DB8 /* View+Keyboard.swift */; };
+		04BF16A02A59B52100F20DB8 /* Text+Border.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BF169F2A59B52100F20DB8 /* Text+Border.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -130,6 +131,7 @@
 		04BF16942A58E34100F20DB8 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		04BF169B2A58F0FC00F20DB8 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		04BF169D2A58F4EB00F20DB8 /* View+Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Keyboard.swift"; sourceTree = "<group>"; };
+		04BF169F2A59B52100F20DB8 /* Text+Border.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Text+Border.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -478,6 +480,7 @@
 				042FD31B2A56210700D4AFF1 /* TextField+Border.swift */,
 				04BF16902A58D61300F20DB8 /* Text+CardFont.swift */,
 				04BF169D2A58F4EB00F20DB8 /* View+Keyboard.swift */,
+				04BF169F2A59B52100F20DB8 /* Text+Border.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -658,6 +661,7 @@
 				042FD3182A55D69D00D4AFF1 /* AppError.swift in Sources */,
 				042FD31C2A56210700D4AFF1 /* TextField+Border.swift in Sources */,
 				049B61F62A51F84100056D60 /* CardsManagementRepo.swift in Sources */,
+				04BF16A02A59B52100F20DB8 /* Text+Border.swift in Sources */,
 				049B62022A5306B900056D60 /* CardDTO+Mapping.swift in Sources */,
 				049B61E62A51EAEE00056D60 /* CardsViewModel.swift in Sources */,
 				042FD32C2A57026900D4AFF1 /* TextFieldAlert.swift in Sources */,

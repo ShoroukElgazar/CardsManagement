@@ -57,6 +57,7 @@ struct AddCardScreen: AppScreen {
 
         } else {
             Text(AppString.Error.connection)
+                .cardtitle()
 
         }
     }
@@ -64,6 +65,7 @@ struct AddCardScreen: AppScreen {
     private func EntryField(title: String,placeHoler: String,text: Binding<String>) -> some View {
         VStack(alignment: .leading){
             Text(title)
+                .cardtitle()
             TextField(placeHoler, text: text).withBorder()
         }
     }
@@ -71,6 +73,7 @@ struct AddCardScreen: AppScreen {
     private func ExpiryDateField() -> some View {
         VStack(alignment: .leading){
             Text(AppString.AddCardScreen.expiryDateTitle)
+                .cardtitle()
             TextField("MM/YY", text: $cardExpiryDate)
                 .withBorder()
                 .keyboardType(.numberPad)
@@ -90,7 +93,8 @@ struct AddCardScreen: AppScreen {
         Button {
             addCard()
         } label: {
-            Text("Add Card")
+            Text(AppString.AddCardScreen.addCardButtonTitle)
+                .font(.system(size: 18, weight: .bold))
                 .frame(maxWidth: .infinity, minHeight: 52)
                 .background(Color(AppString.Colors.appColor))
                 .foregroundColor(.white)
@@ -121,6 +125,7 @@ struct AddCardScreen: AppScreen {
     private func CardNumberField() -> some View {
         VStack(alignment: .leading){
             Text(AppString.AddCardScreen.cardNumberTitle)
+                .cardtitle()
             HStack{
                 TextField(AppString.AddCardScreen.cardNumberTitle.lowercased(), text: $cardHolderNumber)
                     .withBorder()
@@ -130,7 +135,8 @@ struct AddCardScreen: AppScreen {
                     }
                 VStack{
                     Image(cardType.loadIcon())
-                   
+                        .frame(width: 20,height: 20)
+                        .padding(.bottom,2)
                     NavigationLink {
                         CardReaderView { card in
                             cardHolderName = card?.cardHolder ?? ""
@@ -140,6 +146,7 @@ struct AddCardScreen: AppScreen {
                      
                     } label: {
                         Text(AppString.AddCardScreen.scanButtonTitle)
+                            .withBorder()
                             .foregroundColor(Color(AppString.Colors.appColor))
                     }
 
@@ -150,6 +157,4 @@ struct AddCardScreen: AppScreen {
     }
     
 }
-
-
 
