@@ -56,21 +56,24 @@ struct CardsScreen: AppScreen {
 
                 }
             }.accentColor(Color("appColor"))
-            .onAppear{
-                DispatchQueue.main.asyncAfter(deadline:  .now() + 1) {
-                    Task{
-                        isLoading = true
-                        await vm.loadCards()
-                        cards = vm.cards
-                        isLoading = false
-                    }
-                }
-            }
+          
         } else {
             Text("Network connection seems to be offline.")
         }
     }
     
+    func onAppear() {
+        DispatchQueue.main.asyncAfter(deadline:  .now() + 1) {
+            Task{
+                isLoading = true
+                await vm.loadCards()
+                cards = vm.cards
+                isLoading = false
+            }
+        }
+    }
+    
+  
     private func CardsView() -> some View {
         VStack{
             CardsList()

@@ -13,6 +13,7 @@ public protocol AppScreen: View {
     associatedtype Background: View
     var backgroundColor: Background { get }
     var isLoading: Bool { get set }
+    func onAppear()
     
     @ViewBuilder var bodyContent: Content { get }
 
@@ -23,6 +24,7 @@ public extension AppScreen {
     var body: some View {
         ZStack {
             bodyContent
+                .onAppear(perform: onAppear)
             if isLoading {
                 ProgressView()
                     .padding()
@@ -32,7 +34,10 @@ public extension AppScreen {
         .ignoresSafeArea(.all)
         
     }
-
+    
+    func onAppear() {
+    }
+    
     var backgroundColor: some View {
         Color.white
     }
