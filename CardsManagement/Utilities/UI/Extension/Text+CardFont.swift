@@ -10,8 +10,7 @@ import SwiftUI
 extension Text{
     func cardFont() -> some View {
         self
-            .font(.system(size: 18))
-            .fontWeight(.semibold)
+            .font(.system(size: 18, weight: .semibold, design: .default))
             .foregroundColor(Color("appRed"))
             
     }

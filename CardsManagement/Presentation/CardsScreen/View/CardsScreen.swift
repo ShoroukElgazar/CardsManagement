@@ -40,14 +40,12 @@ struct CardsScreen: AppScreen {
                             }
                         }) {
                             Image(systemName: "plus")
-                                .font(.system(size: 25))
-                                .fontWeight(.bold)
+                                .font(.system(size: 25, weight: .bold, design: .default))
                         }
                     }
                     ToolbarItem(placement: .navigationBarLeading) {
                        Text("Cards")
-                            .font(.system(size: 25))
-                            .fontWeight(.bold)
+                            .font(.system(size: 25, weight: .bold, design: .default))
                             .foregroundColor(Color("appColor"))
                         
                     }

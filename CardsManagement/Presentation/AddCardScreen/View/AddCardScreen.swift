@@ -42,13 +42,14 @@ struct AddCardScreen: AppScreen {
                 Spacer().frame(maxHeight: .infinity)
                 
                 AddCardButton()
-                
-               
-                
+                   
             }
             .padding(.top,100)
             .padding(.bottom,20)
              .padding()
+             .onTapGesture {
+                 self.hideKeyboard()
+             }
             
 
         } else {
@@ -138,5 +139,6 @@ struct AddCardScreen: AppScreen {
         }
     }
 }
+
 
 

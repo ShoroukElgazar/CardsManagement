@@ -21,8 +21,7 @@ struct CreditCardView: View{
             VStack(alignment: .leading){
                 HStack{
                     Text(card.cardHolder)
-                        .font(.system(size: 20))
-                        .fontWeight(.bold)
+                        .font(.system(size: 20, weight: .bold, design: .default))
                         .foregroundColor(.red)
                     Spacer()
                     Image(card.cardType.loadIcon())
@@ -51,8 +50,7 @@ struct CreditCardView: View{
                             onRecharge()
                         } label: {
                             Text("Recharge")
-                                .font(.system(size: 18))
-                                .fontWeight(.bold)
+                                .font(.system(size: 18, weight: .bold, design: .default))
                                 .foregroundColor(Color("appColor"))
                         }
                 }

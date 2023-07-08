@@ -59,6 +59,7 @@
 		04BF16932A58D87900F20DB8 /* CreditCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BF16922A58D87800F20DB8 /* CreditCardView.swift */; };
 		04BF16952A58E34100F20DB8 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04BF16942A58E34100F20DB8 /* Colors.xcassets */; };
 		04BF169C2A58F0FC00F20DB8 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BF169B2A58F0FC00F20DB8 /* Storage.swift */; };
+		04BF169E2A58F4EB00F20DB8 /* View+Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BF169D2A58F4EB00F20DB8 /* View+Keyboard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -128,6 +129,7 @@
 		04BF16922A58D87800F20DB8 /* CreditCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCardView.swift; sourceTree = "<group>"; };
 		04BF16942A58E34100F20DB8 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		04BF169B2A58F0FC00F20DB8 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
+		04BF169D2A58F4EB00F20DB8 /* View+Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Keyboard.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -475,6 +477,7 @@
 				04BF166B2A57959300F20DB8 /* ImageTextRecognizable+Handling.swift */,
 				042FD31B2A56210700D4AFF1 /* TextField+Border.swift */,
 				04BF16902A58D61300F20DB8 /* Text+CardFont.swift */,
+				04BF169D2A58F4EB00F20DB8 /* View+Keyboard.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -671,6 +674,7 @@
 				042FD3142A55C62A00D4AFF1 /* DefaultAddCardUseCase.swift in Sources */,
 				042FD3262A56797300D4AFF1 /* DefaultRechargeCardUseCase.swift in Sources */,
 				04BF168F2A58D06800F20DB8 /* AddCardViewModel.swift in Sources */,
+				04BF169E2A58F4EB00F20DB8 /* View+Keyboard.swift in Sources */,
 				04BF169C2A58F0FC00F20DB8 /* Storage.swift in Sources */,
 				042FD3002A54D0F100D4AFF1 /* DefaultCardsManagementRepository.swift in Sources */,
 				042FD3282A56823900D4AFF1 /* CardView.swift in Sources */,
@@ -849,7 +853,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -884,7 +888,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
