@@ -38,6 +38,10 @@ class CardsDIContainer {
             return RechargeCardUseCase(repo: CardsManagementRepo(localDataSrc: CardsManagementLocalDataSrc(), remoteDataSrc: CardsManagementRemoteDataSrc()))
         }.inObjectScope(.container)
         
+        container.register(AddCardViewModel.self) { _  in
+            return AddCardViewModel(addCardUseCase: AddCardUseCase(repo: CardsManagementRepo(localDataSrc: CardsManagementLocalDataSrc(), remoteDataSrc: CardsManagementRemoteDataSrc())))
+           }.inObjectScope(.container)
+           
         
         container.register(CardsViewModel.self) { _  in
             return CardsViewModel(cardsListUseCase: CardsListUseCase(repo: CardsManagementRepo(localDataSrc: CardsManagementLocalDataSrc(), remoteDataSrc: CardsManagementRemoteDataSrc())), rechargeCardUseCase: RechargeCardUseCase(repo: CardsManagementRepo(localDataSrc: CardsManagementLocalDataSrc(), remoteDataSrc: CardsManagementRemoteDataSrc())), deleteCardUseCase: DeleteCardUseCase(repo: CardsManagementRepo(localDataSrc: CardsManagementLocalDataSrc(), remoteDataSrc: CardsManagementRemoteDataSrc())), addCardUseCase: AddCardUseCase(repo: CardsManagementRepo(localDataSrc: CardsManagementLocalDataSrc(), remoteDataSrc: CardsManagementRemoteDataSrc())))

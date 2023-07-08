@@ -9,7 +9,7 @@ import SwiftUI
 import Combine
 
 struct AddCardScreen: AppScreen {
-    @Inject private var vm : CardsViewModel
+    @Inject private var vm : AddCardViewModel
     @State var isLoading: Bool = false
     @State private var card: Card = Card()
     @State private var cardHolderName = ""
@@ -19,7 +19,7 @@ struct AddCardScreen: AppScreen {
     @State private var error = ""
     @State private var cardType : CardType =  .Unknown
     @Environment(\.presentationMode) var presentationMode
-    var onDismiss: ([Card]) -> Void
+    var onDismiss: () -> Void
     @EnvironmentObject var networkMonitor: NetworkMonitor
 
     
@@ -39,15 +39,20 @@ struct AddCardScreen: AppScreen {
                 Text(error)
                     .foregroundColor(.red)
                 
+                Spacer().frame(maxHeight: .infinity)
+                
                 AddCardButton()
                 
-                Spacer()
-            }.padding()
-                .onDisappear{
-                    onDismiss(vm.cards)
-                }
+               
+                
+            }
+            .padding(.top,100)
+            .padding(.bottom,20)
+             .padding()
+            
+
         } else {
-            Text("offline")
+            Text("Network connection seems to be offline.")
         }
     }
     
@@ -80,11 +85,11 @@ struct AddCardScreen: AppScreen {
         Button {
             Task{
                 do{
-                    isLoading = true
                     try await vm.addCard(card: Card(cardHolder: cardHolderName,cardNumber: cardHolderNumber.extractNumericCharacters()
                                               ,cvv: cardCvv,expiryDate: cardExpiryDate,cardType: cardType))
                     DispatchQueue.main.async {
                         isLoading = false
+                        onDismiss()
                         presentationMode.wrappedValue.dismiss()
                     }
                 } catch {
@@ -94,7 +99,7 @@ struct AddCardScreen: AppScreen {
         } label: {
             Text("Add Card")
                 .frame(maxWidth: .infinity, minHeight: 52)
-                .background(Color.blue)
+                .background(Color("appColor"))
                 .foregroundColor(.white)
                 .cornerRadius(8)
                 .padding(.leading, 20)
@@ -124,6 +129,7 @@ struct AddCardScreen: AppScreen {
                         }
                     } label: {
                         Text("scan")
+                            .foregroundColor(Color("appColor"))
                     }
 
                    
@@ -132,6 +138,5 @@ struct AddCardScreen: AppScreen {
         }
     }
 }
-
 
 

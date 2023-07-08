@@ -51,7 +51,6 @@ class AddCardUseCase: DefaultAddCardUseCase {
         return cvvPredicate.evaluate(with: cvv)
     }
     
-    //TODO: change this
     func isCardExpiryDateValid(expiryDate: String) -> Bool {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM/yy"

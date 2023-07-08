@@ -24,8 +24,7 @@ struct CardsScreen: AppScreen {
     var bodyContent: some View {
         if networkMonitor.isNetworkAvailable {
             NavigationView {
-                ZStack
-                {
+                ZStack{
                     if !cards.isEmpty{
                         CardsView()
                     }else{
@@ -34,16 +33,27 @@ struct CardsScreen: AppScreen {
                 }
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
-                        NavigationLink(destination: AddCardScreen{ cards in
-                            self.cards = cards
+                        NavigationLink(destination: AddCardScreen {
+                                Task{
+                                    await vm.loadCards()
+                                    cards = vm.cards
+                            }
                         }) {
                             Image(systemName: "plus")
                                 .font(.system(size: 25))
                                 .fontWeight(.bold)
                         }
                     }
+                    ToolbarItem(placement: .navigationBarLeading) {
+                       Text("Cards")
+                            .font(.system(size: 25))
+                            .fontWeight(.bold)
+                            .foregroundColor(Color("appColor"))
+                        
+                    }
+
                 }
-            }
+            }.accentColor(Color("appColor"))
             .onAppear{
                 DispatchQueue.main.asyncAfter(deadline:  .now() + 1) {
                     Task{
@@ -55,7 +65,7 @@ struct CardsScreen: AppScreen {
                 }
             }
         } else {
-            Text("offline")
+            Text("Network connection seems to be offline.")
         }
     }
     
@@ -83,7 +93,14 @@ struct CardsScreen: AppScreen {
     
     private func CardsList() -> some View {
         List(cards){ card in
-            Card(card: card)
+            CreditCardView(card: card) {
+                amount = "0"
+                showAmountAlert = true
+                self.selectedCardID = card.id
+            } onDelete: {
+                showDeleteConfirmationDialog =  true
+                selectedCardID = card.id
+            }
         }.listRowSeparator(.hidden)
             .background(Color.clear)
             .listStyle(.plain)
@@ -91,46 +108,7 @@ struct CardsScreen: AppScreen {
         
     }
     
-    private func Card(card: Card) -> some View {
-        HStack{
-            VStack(alignment: .leading){
-                Text(card.cardHolder)
-                Text(card.cardNumber)
-                Text(card.expiryDate)
-                Text(card.amount)
-                Image(card.cardType.loadIcon())
-            }
-            Spacer()
-            Button {
-                amount = "0"
-                showAmountAlert = true
-                self.selectedCardID = card.id
-            } label: {
-                Text("Recharge")
-            }
-            
-        }.padding()
-            .background(Color.indigo.opacity(0.2))
-            .cardView()
-            .cornerRadius(5)
-            .shadow(radius: 3)
-            .swipeActions(allowsFullSwipe: false) {
-                
-                DeleteCard(id: card.id)
-            }
-    }
-    
-    private func DeleteCard(id: String) -> some View {
-        Group{
-            Button {
-                showDeleteConfirmationDialog =  true
-                selectedCardID = id
-            } label: {
-                Label("Delete", systemImage: "trash.fill")
-            }
-        }
-    }
-    
+
     private func handleCardRecharging(amount: String) {
         Task{
             isLoading = true
@@ -138,12 +116,9 @@ struct CardsScreen: AppScreen {
             cards = vm.cards
             isLoading = false
         }
-        if vm.showValidationError {
-            showErrorAlert = true
-        }else{
-            showErrorAlert = false
-        }
+    
     }
 
 }
+
 

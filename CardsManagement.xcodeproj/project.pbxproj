@@ -11,7 +11,6 @@
 		042FD3022A54E20900D4AFF1 /* DefaultCardsListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042FD3012A54E20900D4AFF1 /* DefaultCardsListUseCase.swift */; };
 		042FD3042A54E25800D4AFF1 /* CardsManagmentUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042FD3032A54E25800D4AFF1 /* CardsManagmentUseCase.swift */; };
 		042FD30A2A55AECE00D4AFF1 /* AddCardScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042FD3092A55AECE00D4AFF1 /* AddCardScreen.swift */; };
-		042FD30C2A55B07900D4AFF1 /* AddCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042FD30B2A55B07900D4AFF1 /* AddCardViewModel.swift */; };
 		042FD3102A55C59B00D4AFF1 /* AddCardUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042FD30F2A55C59B00D4AFF1 /* AddCardUseCase.swift */; };
 		042FD3122A55C5B200D4AFF1 /* DeleteCardUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042FD3112A55C5B200D4AFF1 /* DeleteCardUseCase.swift */; };
 		042FD3142A55C62A00D4AFF1 /* DefaultAddCardUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042FD3132A55C62A00D4AFF1 /* DefaultAddCardUseCase.swift */; };
@@ -56,6 +55,10 @@
 		04BF16892A58641A00F20DB8 /* RxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 04BF16882A58641A00F20DB8 /* RxMoya */; };
 		04BF168B2A58647A00F20DB8 /* CardsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BF168A2A58647A00F20DB8 /* CardsAPI.swift */; };
 		04BF168D2A588A1100F20DB8 /* AppScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BF168C2A588A1100F20DB8 /* AppScreen.swift */; };
+		04BF168F2A58D06800F20DB8 /* AddCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BF168E2A58D06800F20DB8 /* AddCardViewModel.swift */; };
+		04BF16912A58D61300F20DB8 /* Text+CardFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BF16902A58D61300F20DB8 /* Text+CardFont.swift */; };
+		04BF16932A58D87900F20DB8 /* CreditCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BF16922A58D87800F20DB8 /* CreditCardView.swift */; };
+		04BF16952A58E34100F20DB8 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04BF16942A58E34100F20DB8 /* Colors.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,7 +83,6 @@
 		042FD3012A54E20900D4AFF1 /* DefaultCardsListUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultCardsListUseCase.swift; sourceTree = "<group>"; };
 		042FD3032A54E25800D4AFF1 /* CardsManagmentUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsManagmentUseCase.swift; sourceTree = "<group>"; };
 		042FD3092A55AECE00D4AFF1 /* AddCardScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCardScreen.swift; sourceTree = "<group>"; };
-		042FD30B2A55B07900D4AFF1 /* AddCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCardViewModel.swift; sourceTree = "<group>"; };
 		042FD30F2A55C59B00D4AFF1 /* AddCardUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCardUseCase.swift; sourceTree = "<group>"; };
 		042FD3112A55C5B200D4AFF1 /* DeleteCardUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteCardUseCase.swift; sourceTree = "<group>"; };
 		042FD3132A55C62A00D4AFF1 /* DefaultAddCardUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultAddCardUseCase.swift; sourceTree = "<group>"; };
@@ -122,6 +124,10 @@
 		04BF167D2A5863E600F20DB8 /* MoyaProvider+AsyncAwait.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MoyaProvider+AsyncAwait.swift"; sourceTree = "<group>"; };
 		04BF168A2A58647A00F20DB8 /* CardsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsAPI.swift; sourceTree = "<group>"; };
 		04BF168C2A588A1100F20DB8 /* AppScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppScreen.swift; sourceTree = "<group>"; };
+		04BF168E2A58D06800F20DB8 /* AddCardViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCardViewModel.swift; sourceTree = "<group>"; };
+		04BF16902A58D61300F20DB8 /* Text+CardFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Text+CardFont.swift"; sourceTree = "<group>"; };
+		04BF16922A58D87800F20DB8 /* CreditCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCardView.swift; sourceTree = "<group>"; };
+		04BF16942A58E34100F20DB8 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,7 +183,7 @@
 		042FD3072A55AEA600D4AFF1 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				042FD30B2A55B07900D4AFF1 /* AddCardViewModel.swift */,
+				04BF168E2A58D06800F20DB8 /* AddCardViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -219,8 +225,7 @@
 				049B61DF2A51DCB100056D60 /* Domain */,
 				049B61DE2A51DCA900056D60 /* Data */,
 				049B61E22A51DCDD00056D60 /* Utilities */,
-				049B61F12A51F7B800056D60 /* Shared */,
-				049B61B82A50863D00056D60 /* Assets.xcassets */,
+				04BF169A2A58EC5C00F20DB8 /* Resources */,
 				049B61BA2A50863D00056D60 /* Preview Content */,
 			);
 			path = CardsManagement;
@@ -295,13 +300,9 @@
 		049B61E22A51DCDD00056D60 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				042FD3192A55D6CC00D4AFF1 /* AppString.swift */,
-				042FD31B2A56210700D4AFF1 /* TextField+Border.swift */,
-				042FD31D2A56215100D4AFF1 /* String+Error.swift */,
-				042FD31F2A565DF000D4AFF1 /* CreditCardValidationType.swift */,
-				042FD3212A566C8E00D4AFF1 /* String+NumberOnly.swift */,
-				042FD3292A57024000D4AFF1 /* View+Alert.swift */,
-				042FD32B2A57026900D4AFF1 /* TextFieldAlert.swift */,
+				049B61F12A51F7B800056D60 /* Shared */,
+				04BF16992A58EBF500F20DB8 /* Extension */,
+				04BF16962A58EB9700F20DB8 /* UI */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -412,11 +413,9 @@
 		049B61F12A51F7B800056D60 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				042FD31F2A565DF000D4AFF1 /* CreditCardValidationType.swift */,
+				042FD3192A55D6CC00D4AFF1 /* AppString.swift */,
 				042FD3172A55D69D00D4AFF1 /* AppError.swift */,
-				042FD3272A56823900D4AFF1 /* CardView.swift */,
-				042FD32D2A5759A900D4AFF1 /* CardReaderView.swift */,
-				04BF166B2A57959300F20DB8 /* ImageTextRecognizable+Handling.swift */,
-				04BF168C2A588A1100F20DB8 /* AppScreen.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -446,6 +445,56 @@
 				04BF167D2A5863E600F20DB8 /* MoyaProvider+AsyncAwait.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		04BF16962A58EB9700F20DB8 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				04BF16982A58EBC500F20DB8 /* Extension */,
+				04BF16972A58EBAA00F20DB8 /* View */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		04BF16972A58EBAA00F20DB8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				042FD32B2A57026900D4AFF1 /* TextFieldAlert.swift */,
+				04BF16922A58D87800F20DB8 /* CreditCardView.swift */,
+				042FD3272A56823900D4AFF1 /* CardView.swift */,
+				042FD32D2A5759A900D4AFF1 /* CardReaderView.swift */,
+				04BF168C2A588A1100F20DB8 /* AppScreen.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		04BF16982A58EBC500F20DB8 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				042FD3292A57024000D4AFF1 /* View+Alert.swift */,
+				04BF166B2A57959300F20DB8 /* ImageTextRecognizable+Handling.swift */,
+				042FD31B2A56210700D4AFF1 /* TextField+Border.swift */,
+				04BF16902A58D61300F20DB8 /* Text+CardFont.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		04BF16992A58EBF500F20DB8 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				042FD3212A566C8E00D4AFF1 /* String+NumberOnly.swift */,
+				042FD31D2A56215100D4AFF1 /* String+Error.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		04BF169A2A58EC5C00F20DB8 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				049B61B82A50863D00056D60 /* Assets.xcassets */,
+				04BF16942A58E34100F20DB8 /* Colors.xcassets */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -566,6 +615,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04BF16952A58E34100F20DB8 /* Colors.xcassets in Resources */,
 				049B61BC2A50863D00056D60 /* Preview Assets.xcassets in Resources */,
 				049B61B92A50863D00056D60 /* Assets.xcassets in Resources */,
 			);
@@ -597,6 +647,7 @@
 				042FD31E2A56215100D4AFF1 /* String+Error.swift in Sources */,
 				04BF167F2A5863E600F20DB8 /* MoyaTargetType.swift in Sources */,
 				04BF16752A57A19000F20DB8 /* CardsDIContainer.swift in Sources */,
+				04BF16932A58D87900F20DB8 /* CreditCardView.swift in Sources */,
 				04BF168B2A58647A00F20DB8 /* CardsAPI.swift in Sources */,
 				04BF167E2A5863E600F20DB8 /* MoyaProvider+Create.swift in Sources */,
 				042FD32E2A5759A900D4AFF1 /* CardReaderView.swift in Sources */,
@@ -619,14 +670,15 @@
 				042FD3242A56795E00D4AFF1 /* RechargeCardUseCase.swift in Sources */,
 				042FD3142A55C62A00D4AFF1 /* DefaultAddCardUseCase.swift in Sources */,
 				042FD3262A56797300D4AFF1 /* DefaultRechargeCardUseCase.swift in Sources */,
+				04BF168F2A58D06800F20DB8 /* AddCardViewModel.swift in Sources */,
 				042FD3002A54D0F100D4AFF1 /* DefaultCardsManagementRepository.swift in Sources */,
 				042FD3282A56823900D4AFF1 /* CardView.swift in Sources */,
-				042FD30C2A55B07900D4AFF1 /* AddCardViewModel.swift in Sources */,
 				04BF166C2A57959300F20DB8 /* ImageTextRecognizable+Handling.swift in Sources */,
 				04BF16732A57A0FB00F20DB8 /* Resolver.swift in Sources */,
 				042FD31A2A55D6CC00D4AFF1 /* AppString.swift in Sources */,
 				049B62002A52401000056D60 /* Storage.swift in Sources */,
 				049B62042A530CE600056D60 /* Card.swift in Sources */,
+				04BF16912A58D61300F20DB8 /* Text+CardFont.swift in Sources */,
 				042FD32A2A57024000D4AFF1 /* View+Alert.swift in Sources */,
 				042FD3222A566C8E00D4AFF1 /* String+NumberOnly.swift in Sources */,
 			);
