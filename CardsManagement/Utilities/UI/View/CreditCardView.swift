@@ -18,7 +18,7 @@ struct CreditCardView: View{
         }
     }
     private func Card(card: Card) -> some View {
-            VStack(alignment: .leading){
+            VStack(alignment: .leading,spacing: 5){
                 HStack{
                     Text(card.cardHolder)
                         .font(.system(size: 20, weight: .bold, design: .default))
@@ -39,12 +39,14 @@ struct CreditCardView: View{
                     Text(card.expiryDate)
                         .cardFont()
                 }
-                VStack(alignment: .leading){
-                    Text(AppString.CreditCardView.amountTitle)
-                        .foregroundColor(Color(AppString.Colors.appColor))
+               
                     HStack{
-                    Text(card.amount)
-                        .cardFont()
+                        VStack(alignment: .leading){
+                            Text(AppString.CreditCardView.amountTitle)
+                                .foregroundColor(Color(AppString.Colors.appColor))
+                            Text(card.amount)
+                                .cardFont()
+                        }
                         Spacer()
                         Button {
                             onRecharge()
@@ -56,7 +58,7 @@ struct CreditCardView: View{
                         }
                 }
               
-            }
+         
           
             
         }.padding()

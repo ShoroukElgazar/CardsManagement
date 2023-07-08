@@ -63,7 +63,7 @@ struct TextFieldAlert: ViewModifier {
                     }
                 }
                 .background(.background)
-                .frame(width: 300, height: 160)
+                .frame(width: 200, height: 110)
                 .cornerRadius(20)
                 .overlay {
                     RoundedRectangle(cornerRadius: 20)

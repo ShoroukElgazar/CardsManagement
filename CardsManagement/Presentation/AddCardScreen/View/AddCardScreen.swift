@@ -42,13 +42,13 @@ struct AddCardScreen: AppScreen {
                         .foregroundColor(.red)
  
                 }
-                .disabled(isLoading)
                 .padding()
             }
             .safeAreaInset(edge: VerticalEdge.bottom) {
                 AddCardButton()
                     .padding(.bottom,40)
             }
+            .disabled(isLoading)
             
              .onTapGesture {
                  self.hideKeyboard()
