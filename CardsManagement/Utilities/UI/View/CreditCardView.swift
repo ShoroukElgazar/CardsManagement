@@ -27,21 +27,21 @@ struct CreditCardView: View{
                     Image(card.cardType.loadIcon())
                 }
                 VStack(alignment: .leading){
-                    Text("Card Number:")
-                        .foregroundColor(Color("appColor"))
+                    Text(AppString.CreditCardView.cardNumberTitle)
+                        .foregroundColor(Color(AppString.Colors.appColor))
                         Text(card.cardNumber)
                             .cardFont()
 
                 }
                 VStack(alignment: .leading){
-                    Text("Expiration Date:")
-                        .foregroundColor(Color("appColor"))
+                    Text(AppString.CreditCardView.expirationDateTitle)
+                        .foregroundColor(Color(AppString.Colors.appColor))
                     Text(card.expiryDate)
                         .cardFont()
                 }
                 VStack(alignment: .leading){
-                    Text("Amount:")
-                        .foregroundColor(Color("appColor"))
+                    Text(AppString.CreditCardView.amountTitle)
+                        .foregroundColor(Color(AppString.Colors.appColor))
                     HStack{
                     Text(card.amount)
                         .cardFont()
@@ -49,9 +49,9 @@ struct CreditCardView: View{
                         Button {
                             onRecharge()
                         } label: {
-                            Text("Recharge")
+                            Text(AppString.CreditCardView.rechargeButtonTitle)
                                 .font(.system(size: 18, weight: .bold, design: .default))
-                                .foregroundColor(Color("appColor"))
+                                .foregroundColor(Color(AppString.Colors.appColor))
                         }
                 }
               
@@ -59,7 +59,7 @@ struct CreditCardView: View{
           
             
         }.padding()
-            .background(Color("appColor").opacity(0.2))
+            .background(Color(AppString.Colors.appColor).opacity(0.2))
             .cardView()
             .cornerRadius(5)
             .shadow(radius: 3)
@@ -73,7 +73,7 @@ struct CreditCardView: View{
             Button {
                 onDelete()
             } label: {
-                Label("Delete", systemImage: "trash.fill")
+                Label(AppString.CreditCardView.deleteButtonTitle, systemImage: "trash.fill")
             }
         }
     }

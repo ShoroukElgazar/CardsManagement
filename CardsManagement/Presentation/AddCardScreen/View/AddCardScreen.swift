@@ -29,33 +29,34 @@ struct AddCardScreen: AppScreen {
                        Color.white.opacity(0.0000001)
                 VStack(spacing: 20){
                     
-                    EntryField(title: "Card Holder", placeHoler: "Your Name", text: $cardHolderName)
+                    EntryField(title: AppString.AddCardScreen.cardHolderTitle, placeHoler: AppString.AddCardScreen.cardHolderTitle.lowercased(), text: $cardHolderName)
                     
-                    CardHolderNumberField()
+                    CardNumberField()
                     
-                    EntryField(title: "CVV", placeHoler: "cvv", text: $cardCvv)
+                    EntryField(title: AppString.AddCardScreen.cvvTitle, placeHoler: AppString.AddCardScreen.cvvTitle.lowercased(), text: $cardCvv)
                         .keyboardType(.numberPad)
                     
                     ExpiryDateField()
                     
                     Text(error)
                         .foregroundColor(.red)
-                    
-                    Spacer().frame(maxHeight: .infinity)
-                    
-                    AddCardButton()
-                }.disabled(isLoading)
-                    .padding(.top,100)
-                    .padding(.bottom,20)
-                     .padding()
+ 
+                }
+                .disabled(isLoading)
+                .padding()
             }
+            .safeAreaInset(edge: VerticalEdge.bottom) {
+                AddCardButton()
+                    .padding(.bottom,40)
+            }
+            
              .onTapGesture {
                  self.hideKeyboard()
              }
             
 
         } else {
-            Text("Network connection seems to be offline.")
+            Text(AppString.Error.connection)
 
         }
     }
@@ -69,7 +70,7 @@ struct AddCardScreen: AppScreen {
     
     private func ExpiryDateField() -> some View {
         VStack(alignment: .leading){
-            Text("Expiry Date")
+            Text(AppString.AddCardScreen.expiryDateTitle)
             TextField("MM/YY", text: $cardExpiryDate)
                 .withBorder()
                 .keyboardType(.numberPad)
@@ -91,7 +92,7 @@ struct AddCardScreen: AppScreen {
         } label: {
             Text("Add Card")
                 .frame(maxWidth: .infinity, minHeight: 52)
-                .background(Color("appColor"))
+                .background(Color(AppString.Colors.appColor))
                 .foregroundColor(.white)
                 .cornerRadius(8)
                 .padding(.leading, 20)
@@ -117,11 +118,11 @@ struct AddCardScreen: AppScreen {
         }
     }
     
-    private func CardHolderNumberField() -> some View {
+    private func CardNumberField() -> some View {
         VStack(alignment: .leading){
-            Text("Card Number")
+            Text(AppString.AddCardScreen.cardNumberTitle)
             HStack{
-                TextField("card number", text: $cardHolderNumber)
+                TextField(AppString.AddCardScreen.cardNumberTitle.lowercased(), text: $cardHolderNumber)
                     .withBorder()
                     .keyboardType(.numberPad)
                     .onChange(of: cardHolderNumber) { newValue in
@@ -138,8 +139,8 @@ struct AddCardScreen: AppScreen {
                         }.navigationBarBackButtonHidden()
                      
                     } label: {
-                        Text("scan")
-                            .foregroundColor(Color("appColor"))
+                        Text(AppString.AddCardScreen.scanButtonTitle)
+                            .foregroundColor(Color(AppString.Colors.appColor))
                     }
 
                    
@@ -147,6 +148,7 @@ struct AddCardScreen: AppScreen {
             }
         }
     }
+    
 }
 
 

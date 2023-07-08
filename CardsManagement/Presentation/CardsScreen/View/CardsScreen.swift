@@ -29,7 +29,7 @@ struct CardsScreen: AppScreen {
                         CardsView()
                     }else{
                         if !isLoading{
-                            Text("No Cards Exist")
+                            Text(AppString.CardsScreen.noCardsExist)
                         }else{
                             EmptyView()
                         }
@@ -48,17 +48,17 @@ struct CardsScreen: AppScreen {
                         }
                     }
                     ToolbarItem(placement: .navigationBarLeading) {
-                       Text("Cards")
+                       Text(AppString.CardsScreen.cardsTitle)
                             .font(.system(size: 25, weight: .bold, design: .default))
-                            .foregroundColor(Color("appColor"))
+                            .foregroundColor(Color(AppString.Colors.appColor))
                         
                     }
 
                 }
-            }.accentColor(Color("appColor"))
-          
+            }.accentColor(Color(AppString.Colors.appColor))
+               
         } else {
-            Text("Network connection seems to be offline.")
+            Text(AppString.Error.connection)
         }
     }
     
@@ -78,12 +78,12 @@ struct CardsScreen: AppScreen {
         VStack{
             CardsList()
         }
-        .textFieldAlert(isPresented:  $showAmountAlert, title: "Recharge Your Card", text: $amount, placeholder: "", action: { amount in
+        .textFieldAlert(isPresented:  $showAmountAlert, title: AppString.CardsScreen.rechargeCardTitle, text: $amount, placeholder: "", action: { amount in
             handleCardRecharging(amount: amount)
         })
         .showAlert(showingAlert: $showErrorAlert, alertTitle: "", message: vm.error)
-        .confirmationDialog("Confirm Delete", isPresented: $showDeleteConfirmationDialog) {
-            Button("Delete") {
+        .confirmationDialog(AppString.CardsScreen.confirmDeleteTitle, isPresented: $showDeleteConfirmationDialog) {
+            Button(AppString.CardsScreen.deleteButtonTitle) {
                 Task{
                     isLoading = true
                     await vm.deleteCard(id: selectedCardID)
@@ -92,7 +92,7 @@ struct CardsScreen: AppScreen {
                 }
             }
         } message: {
-            Text("Are you sure you want to delete this card?")
+            Text(AppString.CardsScreen.deleteConfirmationMessage)
         }
     }
     
@@ -105,12 +105,13 @@ struct CardsScreen: AppScreen {
             } onDelete: {
                 showDeleteConfirmationDialog =  true
                 selectedCardID = card.id
-            }
-        }.listRowSeparator(.hidden)
-            .background(Color.clear)
-            .listStyle(.plain)
-            .listRowBackground(Color.clear)
-        
+            }.listRowSeparator(.hidden)
+            
+        }
+        .background(Color.clear)
+        .listStyle(.plain)
+        .listRowBackground(Color.clear)
+
     }
     
 
