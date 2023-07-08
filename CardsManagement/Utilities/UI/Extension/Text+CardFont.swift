@@ -11,7 +11,6 @@ extension Text{
     func cardFont() -> some View {
         self
             .font(.system(size: 18, weight: .semibold, design: .default))
-            .foregroundColor(Color("appRed"))
-            
+            .foregroundColor(Color(AppString.Colors.appRed))            
     }
 }
