@@ -57,7 +57,8 @@ class Storage {
         }
         
         try realm.write {
-            card.amount = newAmount
+            var updatedAmount = (Double(card.amount) ?? 0) + (Double(newAmount) ?? 0)
+            card.amount = String(updatedAmount)
             realm.add(card, update: .modified)
         }
     }

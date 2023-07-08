@@ -14,6 +14,7 @@ struct CardsManagementApp: App {
         WindowGroup {
             CardsScreen()
                 .environmentObject(networkMonitor)
+                .preferredColorScheme(.light)
         }
     }
 }

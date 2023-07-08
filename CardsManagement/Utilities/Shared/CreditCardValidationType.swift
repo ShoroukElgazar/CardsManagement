@@ -33,7 +33,7 @@ enum CardType: String {
         case .MasterCard:
             return "mastercard"
         case .Unknown:
-            return "visa"
+            return "unknownCard"
         }
     }
 }

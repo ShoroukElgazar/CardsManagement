@@ -25,28 +25,30 @@ struct AddCardScreen: AppScreen {
     
     var bodyContent: some View {
         if networkMonitor.isNetworkAvailable {
-            VStack(spacing: 20){
-                
-                EntryField(title: "Card Holder Name", placeHoler: "Your Name", text: $cardHolderName)
-                
-                CardHolderNumberField()
-                
-                EntryField(title: "CVV", placeHoler: "cvv", text: $cardCvv)
-                    .keyboardType(.numberPad)
-                
-                ExpiryDateField()
-                
-                Text(error)
-                    .foregroundColor(.red)
-                
-                Spacer().frame(maxHeight: .infinity)
-                
-                AddCardButton()
-                   
+            ZStack {
+                       Color.white.opacity(0.0000001)
+                VStack(spacing: 20){
+                    
+                    EntryField(title: "Card Holder", placeHoler: "Your Name", text: $cardHolderName)
+                    
+                    CardHolderNumberField()
+                    
+                    EntryField(title: "CVV", placeHoler: "cvv", text: $cardCvv)
+                        .keyboardType(.numberPad)
+                    
+                    ExpiryDateField()
+                    
+                    Text(error)
+                        .foregroundColor(.red)
+                    
+                    Spacer().frame(maxHeight: .infinity)
+                    
+                    AddCardButton()
+                }.disabled(isLoading)
+                    .padding(.top,100)
+                    .padding(.bottom,20)
+                     .padding()
             }
-            .padding(.top,100)
-            .padding(.bottom,20)
-             .padding()
              .onTapGesture {
                  self.hideKeyboard()
              }
@@ -54,6 +56,7 @@ struct AddCardScreen: AppScreen {
 
         } else {
             Text("Network connection seems to be offline.")
+
         }
     }
     
@@ -84,19 +87,7 @@ struct AddCardScreen: AppScreen {
     
     private func AddCardButton() -> some View {
         Button {
-            Task{
-                do{
-                    try await vm.addCard(card: Card(cardHolder: cardHolderName,cardNumber: cardHolderNumber.extractNumericCharacters()
-                                              ,cvv: cardCvv,expiryDate: cardExpiryDate,cardType: cardType))
-                    DispatchQueue.main.async {
-                        isLoading = false
-                        onDismiss()
-                        presentationMode.wrappedValue.dismiss()
-                    }
-                } catch {
-                    self.error = error.localizedDescription
-                }
-            }
+            addCard()
         } label: {
             Text("Add Card")
                 .frame(maxWidth: .infinity, minHeight: 52)
@@ -108,10 +99,27 @@ struct AddCardScreen: AppScreen {
         }
     }
     
+    private func addCard() {
+        Task{
+            do{
+                isLoading = true
+                try await vm.addCard(card: Card(cardHolder: cardHolderName,cardNumber: cardHolderNumber.extractNumericCharacters()
+                                          ,cvv: cardCvv,expiryDate: cardExpiryDate,cardType: cardType))
+                DispatchQueue.main.async {
+                    isLoading = false
+                    onDismiss()
+                    presentationMode.wrappedValue.dismiss()
+                }
+            } catch {
+                self.error = error.localizedDescription
+                isLoading = false
+            }
+        }
+    }
     
     private func CardHolderNumberField() -> some View {
         VStack(alignment: .leading){
-            Text("Card Holder Number")
+            Text("Card Number")
             HStack{
                 TextField("card number", text: $cardHolderNumber)
                     .withBorder()
@@ -127,7 +135,8 @@ struct AddCardScreen: AppScreen {
                             cardHolderName = card?.cardHolder ?? ""
                             cardHolderNumber = card?.cardNumber ?? ""
                             cardExpiryDate = card?.expiryDate ?? ""
-                        }
+                        }.navigationBarBackButtonHidden()
+                     
                     } label: {
                         Text("scan")
                             .foregroundColor(Color("appColor"))

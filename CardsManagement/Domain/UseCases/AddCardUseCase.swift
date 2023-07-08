@@ -17,19 +17,19 @@ class AddCardUseCase: DefaultAddCardUseCase {
         
     func saveCard(card: Card) async throws {
         guard isCardHolderNameValid(name: card.cardHolder) else {
-            throw "invalidCardHolderName"
+            throw "Invalid card holder"
         }
          
         guard isCardHolderNumberValid(cardNumber: card.cardNumber) else {
-            throw "invalidCardHolderNumber"
+            throw "Invalid card number"
            }
         
         guard isCardCvvValid(cvv: card.cvv) else {
-            throw "invalidCardCvv"
+            throw "Invalid card CVV"
            }
         
         guard isCardExpiryDateValid(expiryDate: card.expiryDate) else {
-            throw "invalidCardExpiryDate"
+            throw "Invalid card expiry date"
            }
            
         try await repo.saveCard(card: card)

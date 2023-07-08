@@ -23,7 +23,9 @@ struct TextFieldAlert: ViewModifier {
                 .disabled(isPresented)
             if isPresented {
                 VStack {
-                    Text(title).font(.headline).padding()
+                    Text(title).font(.headline)
+                        .foregroundColor(Color("appColor"))
+                        .padding(.top,3)
                     ZStack(alignment: .leading) {
                         TextField(placeholder, text: $text)
                             .foregroundColor(.clear)
@@ -32,6 +34,8 @@ struct TextFieldAlert: ViewModifier {
                             .accentColor(.clear)
                         
                         Text("\(enteredNumberFormatted, specifier: "%.2f")")
+                            .padding(.leading)
+                
                     }
                     Divider()
                     HStack{
@@ -59,7 +63,7 @@ struct TextFieldAlert: ViewModifier {
                     }
                 }
                 .background(.background)
-                .frame(width: 300, height: 150)
+                .frame(width: 300, height: 160)
                 .cornerRadius(20)
                 .overlay {
                     RoundedRectangle(cornerRadius: 20)

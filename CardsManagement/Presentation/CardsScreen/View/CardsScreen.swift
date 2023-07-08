@@ -9,7 +9,7 @@ import SwiftUI
 import RealmSwift
 
 struct CardsScreen: AppScreen {
-    @State var isLoading: Bool = false
+    @State var isLoading: Bool = true
     @Inject private var vm : CardsViewModel
     @State private var showAmountAlert = false
     @State private var showErrorAlert = false
@@ -25,12 +25,16 @@ struct CardsScreen: AppScreen {
         if networkMonitor.isNetworkAvailable {
             NavigationView {
                 ZStack{
-                    if !cards.isEmpty{
+                    if !cards.isEmpty {
                         CardsView()
                     }else{
-                        Text("No Cards Exist")
+                        if !isLoading{
+                            Text("No Cards Exist")
+                        }else{
+                            EmptyView()
+                        }
                     }
-                }
+                }.disabled(isLoading)
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
                         NavigationLink(destination: AddCardScreen {

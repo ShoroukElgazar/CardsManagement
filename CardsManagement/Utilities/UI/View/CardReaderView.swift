@@ -51,8 +51,9 @@ struct CardReaderView: UIViewControllerRepresentable {
        public func documentCameraViewController(_ controller: VNDocumentCameraViewController, didFailWithError error: Error) {
           print("Document camera view controller did finish with error ", error)
           completionHandler(nil)
+           parent.presentationMode.wrappedValue.dismiss()
        }
-       
+        
     }
      func makeUIViewController(context: UIViewControllerRepresentableContext<CardReaderView>) -> VNDocumentCameraViewController {
        let viewController = VNDocumentCameraViewController()
@@ -60,7 +61,9 @@ struct CardReaderView: UIViewControllerRepresentable {
        return viewController
     }
     
-     func updateUIViewController(_ uiViewController: VNDocumentCameraViewController, context: UIViewControllerRepresentableContext<CardReaderView>) { }
+     func updateUIViewController(_ uiViewController: VNDocumentCameraViewController, context: UIViewControllerRepresentableContext<CardReaderView>) {
+       
+     }
     
 }
 
