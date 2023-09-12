@@ -9,14 +9,12 @@ import Foundation
 
 class CardsManagementRepo: DefaultCardsManagementRepository {
     
-    let localDataSrc: DefaultCardsManagementDataSrc
-    let remoteDataSrc: DefaultCardsManagementDataSrc
+    var localDataSrc: DefaultCardsManagementDataSrc
+    @Inject var remoteDataSrc: DefaultCardsManagementDataSrc
     
-    init(localDataSrc: DefaultCardsManagementDataSrc, remoteDataSrc: DefaultCardsManagementDataSrc) {
+    init(localDataSrc: DefaultCardsManagementDataSrc) {
         self.localDataSrc = localDataSrc
-        self.remoteDataSrc = remoteDataSrc
     }
-    
     func getAllCards() async throws -> [Card]? {
         do {
             let cards = try await remoteDataSrc.getAllCards()

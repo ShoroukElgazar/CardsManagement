@@ -10,14 +10,14 @@ import RealmSwift
 
 class Storage {
     
-    private init() {}
-    
-    class func sharedInstance() -> Storage {
-        struct Singleton{
-            static var shared = Storage()
-        }
-        return Singleton.shared
-    }
+//    private init() {}
+//    
+//    class func sharedInstance() -> Storage {
+//        struct Singleton{
+//            static var shared = Storage()
+//        }
+//        return Singleton.shared
+//    }
     
     func save(card:CardDTO) throws {
         let realm = try Realm()

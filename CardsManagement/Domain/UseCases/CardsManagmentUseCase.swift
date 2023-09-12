@@ -9,12 +9,8 @@ import Foundation
 
 class CardsListUseCase: DefaultCardsListUseCase {
     
-    private var repo : DefaultCardsManagementRepository
-    
-    init(repo: DefaultCardsManagementRepository) {
-        self.repo = repo
-    }
-    
+    @Inject private var repo : DefaultCardsManagementRepository
+  
     func getAllCards() async throws -> [Card]? {
         try await repo.getAllCards()
     }

@@ -8,13 +8,8 @@
 import Foundation
 
 class AddCardUseCase: DefaultAddCardUseCase {
-    private var repo : DefaultCardsManagementRepository
-    
-    init(repo: DefaultCardsManagementRepository) {
-        self.repo = repo
-    }
-  
-        
+    @Inject private var repo : DefaultCardsManagementRepository
+      
     func saveCard(card: Card) async throws {
         guard isCardHolderNameValid(name: card.cardHolder) else {
             throw "Invalid card holder"

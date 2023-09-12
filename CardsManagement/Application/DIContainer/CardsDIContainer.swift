@@ -14,41 +14,43 @@ class CardsDIContainer {
     
     func buildContainer() -> Container {
         let container = Container()
-        container.register(DefaultCardsManagementDataSrc.self) { _  in
-            return CardsManagementLocalDataSrc()
-        }.inObjectScope(.container)
+       
         
+        container.register(DefaultCardsManagementDataSrc.self) { _  in
+            return CardsManagementRemoteDataSrc()
+        }.inObjectScope(.container)
+
         container.register(DefaultCardsManagementRepository.self) { _  in
-            return CardsManagementRepo(localDataSrc: CardsManagementLocalDataSrc(), remoteDataSrc: CardsManagementRemoteDataSrc())
+            return CardsManagementRepo(localDataSrc: CardsManagementLocalDataSrc())
         }.inObjectScope(.container)
         
         container.register(DefaultCardsListUseCase.self) { _  in
-            return CardsListUseCase(repo: CardsManagementRepo(localDataSrc: CardsManagementLocalDataSrc(), remoteDataSrc: CardsManagementRemoteDataSrc()))
+            return CardsListUseCase()
         }.inObjectScope(.container)
         
         container.register(DefaultAddCardUseCase.self) { _  in
-            return AddCardUseCase(repo: CardsManagementRepo(localDataSrc: CardsManagementLocalDataSrc(), remoteDataSrc: CardsManagementRemoteDataSrc()))
+            return AddCardUseCase()
         }.inObjectScope(.container)
         
         container.register(DefaultDeleteCardUseCase.self) { _  in
-            return DeleteCardUseCase(repo: CardsManagementRepo(localDataSrc: CardsManagementLocalDataSrc(), remoteDataSrc: CardsManagementRemoteDataSrc()))
+            return DeleteCardUseCase()
         }.inObjectScope(.container)
         
         container.register(DefaultRechargeCardUseCase.self) { _  in
-            return RechargeCardUseCase(repo: CardsManagementRepo(localDataSrc: CardsManagementLocalDataSrc(), remoteDataSrc: CardsManagementRemoteDataSrc()))
+            return RechargeCardUseCase()
         }.inObjectScope(.container)
         
         container.register(AddCardViewModel.self) { _  in
-            return AddCardViewModel(addCardUseCase: AddCardUseCase(repo: CardsManagementRepo(localDataSrc: CardsManagementLocalDataSrc(), remoteDataSrc: CardsManagementRemoteDataSrc())))
+            return AddCardViewModel()
            }.inObjectScope(.container)
            
         
         container.register(CardsViewModel.self) { _  in
-            return CardsViewModel(cardsListUseCase: CardsListUseCase(repo: CardsManagementRepo(localDataSrc: CardsManagementLocalDataSrc(), remoteDataSrc: CardsManagementRemoteDataSrc())), rechargeCardUseCase: RechargeCardUseCase(repo: CardsManagementRepo(localDataSrc: CardsManagementLocalDataSrc(), remoteDataSrc: CardsManagementRemoteDataSrc())), deleteCardUseCase: DeleteCardUseCase(repo: CardsManagementRepo(localDataSrc: CardsManagementLocalDataSrc(), remoteDataSrc: CardsManagementRemoteDataSrc())), addCardUseCase: AddCardUseCase(repo: CardsManagementRepo(localDataSrc: CardsManagementLocalDataSrc(), remoteDataSrc: CardsManagementRemoteDataSrc())))
+            return CardsViewModel()
         }.inObjectScope(.container)
         
         container.register(Storage.self) { _  in
-            return Storage.sharedInstance()
+            return Storage()
    
         }.inObjectScope(.container)
         return container

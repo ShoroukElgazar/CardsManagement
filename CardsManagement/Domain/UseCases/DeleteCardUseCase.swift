@@ -9,11 +9,7 @@ import Foundation
 
 class DeleteCardUseCase: DefaultDeleteCardUseCase {
     
-    private var repo : DefaultCardsManagementRepository
-    
-    init(repo: DefaultCardsManagementRepository) {
-        self.repo = repo
-    }
+    @Inject private var repo : DefaultCardsManagementRepository
     
     func deleteCard(id: String) async throws {
         try await repo.deleteCard(id: id)

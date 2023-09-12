@@ -9,13 +9,8 @@ import Combine
 import Foundation
 
 class AddCardViewModel: ObservableObject {
-    var addCardUseCase : DefaultAddCardUseCase
+    @Inject var addCardUseCase : DefaultAddCardUseCase
     var creditCardValidationType : CreditCardValidationType = CreditCardValidationType()
-
-    init(addCardUseCase: DefaultAddCardUseCase) {
-        self.addCardUseCase = addCardUseCase
-    }
-
     func addCard(card: Card) async throws {
         try await addCardUseCase.saveCard(card: card)
     }

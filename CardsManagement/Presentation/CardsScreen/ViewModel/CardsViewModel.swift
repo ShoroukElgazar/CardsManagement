@@ -8,10 +8,10 @@
 import Combine
 
 class CardsViewModel: ObservableObject {
-    private var cardsListUseCase : DefaultCardsListUseCase
-    private var rechargeCardUseCase : DefaultRechargeCardUseCase
-    private var deleteCardUseCase : DefaultDeleteCardUseCase
-    var addCardUseCase : DefaultAddCardUseCase
+    @Inject private var cardsListUseCase : DefaultCardsListUseCase
+    @Inject private var rechargeCardUseCase : DefaultRechargeCardUseCase
+    @Inject private var deleteCardUseCase : DefaultDeleteCardUseCase
+    @Inject var addCardUseCase : DefaultAddCardUseCase
     var creditCardValidationType : CreditCardValidationType = CreditCardValidationType()
 
     
@@ -20,13 +20,6 @@ class CardsViewModel: ObservableObject {
     @Published var showValidationError  = false
     @Published var isLoading  = false
     
-    init(cardsListUseCase: DefaultCardsListUseCase, rechargeCardUseCase: DefaultRechargeCardUseCase, deleteCardUseCase: DefaultDeleteCardUseCase, addCardUseCase: DefaultAddCardUseCase) {
-        self.cardsListUseCase = cardsListUseCase
-        self.rechargeCardUseCase = rechargeCardUseCase
-        self.deleteCardUseCase = deleteCardUseCase
-        self.addCardUseCase = addCardUseCase
-    }
-
     
     func loadCards() async {
         do{

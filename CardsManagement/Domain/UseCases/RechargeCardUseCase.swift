@@ -8,12 +8,8 @@
 import Foundation
 
 class RechargeCardUseCase: DefaultRechargeCardUseCase {
-    private var repo : DefaultCardsManagementRepository
-    
-    init(repo: DefaultCardsManagementRepository) {
-        self.repo = repo
-    }
-    
+    @Inject private var repo : DefaultCardsManagementRepository
+        
     func rechargeCard(id: String,newAmount: String) async throws {
       try await repo.updateCardAmount(id: id, newAmount: newAmount)
     }

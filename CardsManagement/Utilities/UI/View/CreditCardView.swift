@@ -39,7 +39,6 @@ struct CreditCardView: View{
                     Text(card.expiryDate)
                         .cardFont()
                 }
-               
                     HStack{
                         VStack(alignment: .leading){
                             Text(AppString.CreditCardView.amountTitle)
